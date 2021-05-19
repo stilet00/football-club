@@ -1,0 +1,38 @@
+.menu {
+  position: fixed;
+  display: grid;
+  grid-template-columns: 20% 1fr 20%;
+  width: 100%;
+  background-color: aliceblue; }
+  .menu .right-menu-button {
+    display: flex;
+    align-items: center; }
+  .menu .fall-down-menu {
+    position: absolute;
+    top: 43px;
+    left: 0px;
+    width: 100vw;
+    box-sizing: border-box;
+    padding-left: 10px;
+    background-color: aliceblue;
+    transition: 1s; }
+    .menu .fall-down-menu li {
+      list-style-type: none; }
+
+.menu-enter {
+  opacity: 0;
+  transform: scale(0.9); }
+
+.menu-enter-active {
+  opacity: 1;
+  transition: all 1s ease-out; }
+
+.menu-exit {
+  opacity: 1; }
+
+.menu-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-out; }
+
+/*# sourceMappingURL=MenuBar.css.map */
