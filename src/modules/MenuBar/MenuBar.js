@@ -3,11 +3,13 @@ import { Button } from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import "./MenuBar.css"
 import { CSSTransition } from "react-transition-group";
+import { Link, useRouteMatch } from "react-router-dom";
 function MenuBar (props) {
     const [ menuShown, setMenuShown ] = useState(false)
     function toggleMenu() {
         setMenuShown(!menuShown)
     }
+    const match = useRouteMatch()
     return (
         <div className={'menu'}>
             <div className="right-menu-button">
@@ -21,8 +23,8 @@ function MenuBar (props) {
                     unmountOnExit
                 >
                         <ul className={'fall-down-menu'}>
-                            <li><Button>Show all players</Button></li>
-                            <li><Button>Add new player</Button></li>
+                            <li><Link to={match.path + 'players'}><Button onClick={toggleMenu}>Show all players</Button></Link></li>
+                            <li><Link to={'/add'}><Button>Add new player</Button></Link></li>
                             <li><Button>menu3</Button></li>
                             <li><Button>menu4</Button></li>
                             <li><Button>menu5</Button></li>

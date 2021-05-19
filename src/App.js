@@ -1,11 +1,13 @@
 import './App.css';
 import MainPage from "./modules/MainPage/MainPage";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-     <MainPage />
-    </div>
+      <BrowserRouter>
+        <MainPage />
+      </BrowserRouter>
+
   );
 }
 

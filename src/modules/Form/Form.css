@@ -1,0 +1,15 @@
+.players-form {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 5px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px lightgray;
+  background-color: aliceblue; }
+  .players-form div {
+    margin-top: 10px; }
+
+.MuiDropzoneArea-root {
+  min-height: 100px !important; }
+
+/*# sourceMappingURL=Form.css.map */
