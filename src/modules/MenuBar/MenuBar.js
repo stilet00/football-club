@@ -58,7 +58,6 @@ function MenuBar() {
         </CSSTransition>
       </div>
       <h3>
-        {" "}
         <SportsSoccerIcon /> Liverpool players <SportsSoccerIcon />
       </h3>
     </div>

@@ -22,7 +22,7 @@ function Players({ players, deletePlayer, onFormSubmit }) {
         />
         <Route
           path={path + "/:id"}
-          component={() => <Form players={players} />}
+          component={() => <Form players={players} onFormSubmit={onFormSubmit}/>}
         />
       </Switch>
     </div>

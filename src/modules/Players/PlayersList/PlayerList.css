@@ -1,0 +1,9 @@
+td:last-child {
+  display: flex;
+  flex-direction: column; }
+
+@media (max-width: 500px) {
+  th:nth-child(3), th:nth-child(5), th:nth-child(4), td:nth-child(3), td:nth-child(5), td:nth-child(4) {
+    display: none; } }
+
+/*# sourceMappingURL=PlayerList.css.map */

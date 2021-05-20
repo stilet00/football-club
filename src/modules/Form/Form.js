@@ -7,7 +7,7 @@ import "./Form.css";
 import { DropzoneArea } from "material-ui-dropzone";
 import { useForm } from "./hooks";
 function Form({ players, onFormSubmit }) {
-  const { player, onInputChange, onDrop, history } = useForm(players);
+  const { player, onInputChange, onDrop, history, clearFields } = useForm(players);
   return (
     <form
       onSubmit={(e) => {
@@ -59,7 +59,7 @@ function Form({ players, onFormSubmit }) {
           <Button type={"submit"}>
             <SaveIcon />
           </Button>
-          <Button>
+          <Button onClick={clearFields}>
             <ClearAllIcon />
           </Button>
           <Button onClick={() => history.push("/players")}>

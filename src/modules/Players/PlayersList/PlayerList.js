@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import AddIcon from "@material-ui/icons/Add";
 import { useHistory, useRouteMatch } from "react-router";
+import "./PlayerList.css"
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -25,7 +26,7 @@ const StyledTableCell = withStyles((theme) => ({
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
+    minWidth: '100%',
   },
 });
 function PlayerList({ players, deletePlayer }) {
@@ -33,7 +34,7 @@ function PlayerList({ players, deletePlayer }) {
   const { path } = useRouteMatch();
   const history = useHistory();
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={'players-list'}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
