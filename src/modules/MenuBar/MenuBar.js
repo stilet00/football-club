@@ -57,9 +57,9 @@ function MenuBar() {
           </ul>
         </CSSTransition>
       </div>
-      <h3>
+      <h2>
         <SportsSoccerIcon /> Liverpool players <SportsSoccerIcon />
-      </h3>
+      </h2>
     </div>
   );
 }
