@@ -9,6 +9,7 @@ import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import { useMenuBar } from "./hooks";
+import logo from "../../logo.png";
 
 function MenuBar() {
   const { toggleMenu, menuShown, path } = useMenuBar();
@@ -60,6 +61,7 @@ function MenuBar() {
       <h2>
         <SportsSoccerIcon /> Liverpool players <SportsSoccerIcon />
       </h2>
+      <div className={'logo-container'}><img src={logo} className={'header-logo'} alt="logo"/></div>
     </div>
   );
 }
