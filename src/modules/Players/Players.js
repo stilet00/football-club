@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
-import "./Players.css"
-import { Button, Fab } from "@material-ui/core";
-import AddIcon from '@material-ui/icons/Add';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import { useHistory, useRouteMatch } from "react-router";
+import React from "react";
+import "./Players.css";
+import { useRouteMatch } from "react-router";
 import PlayerList from "./PlayersList/PlayerList";
-import { PLAYERS } from "../../mocks/mocks";
-import { Link } from "react-router-dom";
-function Players (props) {
-    const history = useHistory()
-    const { path } = useRouteMatch()
-    const [ players, setPlayers ] = useState(PLAYERS)
-    return (
-        <div className={'players'}>
-            <PlayerList players={players}/>
-            <div className={'control-buttons'}>
-                <Fab  aria-label="add" onClick={() => history.push('/')}>
-                    <Link to={path + '/add'}><ArrowBackIcon /></Link>
-                </Fab>
-                <Fab  aria-label="add">
-                    <Link to={path + '/add'}><AddIcon /></Link>
-                </Fab>
-
-            </div>
-
-        </div>
-    );
+import { Route, Switch } from "react-router-dom";
+import Form from "../Form/Form";
+function Players({ players, deletePlayer, onFormSubmit }) {
+  const { path } = useRouteMatch();
+  return (
+    <div className={"players"}>
+      <Switch>
+        <Route
+          path={path}
+          exact
+          component={() => (
+            <PlayerList players={players} deletePlayer={deletePlayer} />
+          )}
+        />
+        <Route
+          path={path + "/add"}
+          component={() => <Form onFormSubmit={onFormSubmit} />}
+        />
+        <Route
+          path={path + "/:id"}
+          component={() => <Form players={players} />}
+        />
+      </Switch>
+    </div>
+  );
 }
 
 export default Players;

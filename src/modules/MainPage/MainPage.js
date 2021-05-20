@@ -1,31 +1,39 @@
-import React from 'react';
+import React from "react";
 import MenuBar from "../MenuBar/MenuBar";
-import { useRouteMatch } from "react-router-dom";
-import {
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Players from "../Players/Players";
 import Main from "../../Components/Main/Main";
-import "./MainPage.css"
+import "./MainPage.css";
 import Form from "../Form/Form";
+import { useMainPage } from "./hooks";
 
-
-function MainPage (props) {
-    return (
-        <div className={'main-page'}>
-            <MenuBar />
-            <Switch>
-                <Route path={'/'} exact component={Main} />
-                <Route path={'/add'} component={Form} />
-                <Route path={'/players/add'} component={Form} />
-                <Route path={'/players'} component={Players} />
-
-            </Switch>
-            {/*<Link to={'players'}>ADSADSD</Link>*/}
-        </div>
-    );
+function MainPage() {
+  const { players, onFormSubmit, deletePlayer } = useMainPage();
+  return (
+    <div className={"main-page"}>
+      <MenuBar />
+      <div className={"main-container"}>
+        <Switch>
+          <Route
+            path={"/add"}
+            exact
+            component={() => <Form onFormSubmit={onFormSubmit} />}
+          />
+          <Route
+            path={"/players"}
+            component={() => (
+              <Players
+                deletePlayer={deletePlayer}
+                players={players}
+                onFormSubmit={onFormSubmit}
+              />
+            )}
+          />
+        </Switch>
+      </div>
+      <Main />
+    </div>
+  );
 }
 
 export default MainPage;

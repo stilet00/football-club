@@ -14,7 +14,14 @@
   display: flex;
   justify-content: space-evenly;
   width: 50%;
-  margin: 10px auto
+  margin: 10px auto;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:visited {
+  color: inherit;
 }
 @keyframes App-logo-spin {
   from {

@@ -1,64 +1,74 @@
-import React from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import PlayerItem from "../PlayerItem/PlayerItem";
+import { Fab } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import AddIcon from "@material-ui/icons/Add";
+import { useHistory, useRouteMatch } from "react-router";
 const StyledTableCell = withStyles((theme) => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    body: {
-        fontSize: 14,
-    },
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-    root: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: 'aliceblue',
-        },
-    },
-}))(TableRow);
 const useStyles = makeStyles({
-    table: {
-        minWidth: 700,
-    },
+  table: {
+    minWidth: 700,
+  },
 });
-function PlayerList ({players}) {
-    const classes = useStyles();
-    return (
-        <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="customized table">
-                <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Name, Surname</StyledTableCell>
-                        <StyledTableCell align="right">Photo</StyledTableCell>
-                        <StyledTableCell align="right">Date of birth</StyledTableCell>
-                        <StyledTableCell align="right">Games played</StyledTableCell>
-                        <StyledTableCell align="right">Price</StyledTableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {players.map(({id, name, surName, photo, birthDate, gamesPlayed, price}) => (
-                        <StyledTableRow key={id}>
-                            <StyledTableCell component="th" scope="row">
-                                {name + ' ' + surName}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">{photo}</StyledTableCell>
-                            <StyledTableCell align="right">{`${birthDate[0]} ${birthDate[1]} ${birthDate[2]}`}</StyledTableCell>
-                            <StyledTableCell align="right">{gamesPlayed}</StyledTableCell>
-                            <StyledTableCell align="right">{price}</StyledTableCell>
-                        </StyledTableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
-    );
+function PlayerList({ players, deletePlayer }) {
+  const classes = useStyles();
+  const { path } = useRouteMatch();
+  const history = useHistory();
+  return (
+    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Name, Surname</StyledTableCell>
+            <StyledTableCell align="right">Photo</StyledTableCell>
+            <StyledTableCell align="right">Date of birth</StyledTableCell>
+            <StyledTableCell align="right">Games played</StyledTableCell>
+            <StyledTableCell align="right">Price</StyledTableCell>
+            <StyledTableCell align="right">Actions</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {players.map((player) => (
+            <PlayerItem
+              key={player.id}
+              {...player}
+              deletePlayer={deletePlayer}
+            />
+          ))}
+        </TableBody>
+      </Table>
+      <div className={"control-buttons"}>
+        <Fab aria-label="add" onClick={() => history.push("/")}>
+          <Link to={path + "/add"}>
+            <ArrowBackIcon />
+          </Link>
+        </Fab>
+        <Fab aria-label="add">
+          <Link to={path + "/add"}>
+            <AddIcon />
+          </Link>
+        </Fab>
+      </div>
+    </TableContainer>
+  );
 }
 
 export default PlayerList;

@@ -1,8 +1,8 @@
 export const DEFAULT_PLAYER = {
-        name: '',
-        surName: '',
-        photo: [],
-        birthDate: [],
-        gamesPlayed: 0,
-        price: 0
-    }
+  name: "",
+  surName: "",
+  photo: {},
+  birthDate: [15, "june", 1992],
+  gamesPlayed: "",
+  price: "",
+};

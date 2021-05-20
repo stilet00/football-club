@@ -1,5 +1,11 @@
 .main-page {
   min-height: 100vh;
-  background-color: #e31b23; }
+  background-color: #e31b23;
+}
+.main-page .main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 /*# sourceMappingURL=MainPage.css.map */
