@@ -7,7 +7,8 @@ import "./Form.css";
 import { DropzoneArea } from "material-ui-dropzone";
 import { useForm } from "./hooks";
 function Form({ players, onFormSubmit }) {
-  const { player, onInputChange, onDrop, history, clearFields } = useForm(players);
+  const { player, onInputChange, onDrop, history, clearFields } =
+    useForm(players);
   return (
     <form
       onSubmit={(e) => {

@@ -20,7 +20,7 @@ export function useForm(players) {
     [player]
   );
   function clearFields() {
-    setPlayer(DEFAULT_PLAYER)
+    setPlayer(DEFAULT_PLAYER);
   }
   function onInputChange(e) {
     setPlayer({ ...player, [e.target.name]: e.target.value });
@@ -31,6 +31,6 @@ export function useForm(players) {
     onInputChange,
     onDrop,
     history,
-    clearFields
+    clearFields,
   };
 }

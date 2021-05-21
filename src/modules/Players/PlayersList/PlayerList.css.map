@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AACE,aAAY;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;;AAE1B,yBAAyB;EAErB,oGAA8C;IAC5C,OAAO,EAAE,IAAI",
+"mappings": "AACE,aAAY;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;;AAC1B,aAAa;EACX,UAAU,EAAE,KAAK;;AACnB,yBAAyB;EAErB,oGAA8C;IAC5C,OAAO,EAAE,IAAI",
 "sources": ["PlayerList.sass"],
 "names": [],
 "file": "PlayerList.css"

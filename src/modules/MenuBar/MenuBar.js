@@ -61,7 +61,9 @@ function MenuBar() {
       <h2>
         <SportsSoccerIcon /> Liverpool players <SportsSoccerIcon />
       </h2>
-      <div className={'logo-container'}><img src={logo} className={'header-logo'} alt="logo"/></div>
+      <div className={"logo-container"}>
+        <img src={logo} className={"header-logo"} alt="logo" />
+      </div>
     </div>
   );
 }

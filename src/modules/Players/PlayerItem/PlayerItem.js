@@ -38,12 +38,16 @@ function PlayerItem({
   const match = useRouteMatch();
   return (
     <StyledTableRow>
-      <StyledTableCell scope="row">{name + " " + surName}</StyledTableCell>
+      <StyledTableCell scope="row">{`${name} ${surName}`}</StyledTableCell>
       <StyledTableCell align="right">
-        <img
+        {/*<img*/}
+        {/*  className={"thumbnail"}*/}
+        {/*  src={photo.preview}*/}
+        {/*  alt={"thumbnail"}*/}
+        {/*/>*/}
+        <div
           className={"thumbnail"}
-          src={photo.preview}
-          alt={"thumbnail"}
+          style={{ backgroundImage: "url(" + photo.preview }}
         />
       </StyledTableCell>
       <StyledTableCell align="right">{`${birthDate[0]} ${birthDate[1]} ${birthDate[2]}`}</StyledTableCell>

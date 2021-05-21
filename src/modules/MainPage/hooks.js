@@ -11,16 +11,17 @@ export function useMainPage() {
   }
   function onFormSubmit(player) {
     if (!player.photo) {
-      player.photo = DEFAULT_THUMBNAIL
+      player.photo = DEFAULT_THUMBNAIL;
     }
     if (player.id) {
-      setPlayers(players.map(item => item.id === player.id ? player : item));
+      setPlayers(
+        players.map((item) => (item.id === player.id ? player : item))
+      );
     } else {
       player.id = Date.now();
       setPlayers([...players, player]);
     }
     history.push("/players");
-
   }
   return {
     players,
