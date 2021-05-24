@@ -18,6 +18,7 @@ a {
   .price::after {
     position: absolute;
     content: "$";
+    font-style: italic;
     right: 0px; }
 
 /*# sourceMappingURL=PlayerItem.css.map */
