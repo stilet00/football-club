@@ -36,7 +36,7 @@ function Form({ players, onFormSubmit }) {
         <DropzoneArea
           onChange={onDrop}
           acceptedFiles={["image/jpeg", "image/png", "image/bmp"]}
-          showPreviews={true}
+          showPreviews={false}
           maxFileSize={5000000}
           maxFiles={1}
         />

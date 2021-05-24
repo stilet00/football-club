@@ -37,7 +37,7 @@ function PlayerItem({
 }) {
   const match = useRouteMatch();
   return (
-    <StyledTableRow>
+    <StyledTableRow className={'single-player-item'}>
       <StyledTableCell scope="row">{`${name} ${surName}`}</StyledTableCell>
       <StyledTableCell align="right">
         {/*<img*/}
@@ -52,7 +52,7 @@ function PlayerItem({
       </StyledTableCell>
       <StyledTableCell align="right">{`${birthDate[0]} ${birthDate[1]} ${birthDate[2]}`}</StyledTableCell>
       <StyledTableCell align="right">{gamesPlayed}</StyledTableCell>
-      <StyledTableCell align="right">{price}</StyledTableCell>
+      <StyledTableCell align="right" className={'price'}>{price}</StyledTableCell>
       <StyledTableCell align="right">
         <Button
           size={"small"}

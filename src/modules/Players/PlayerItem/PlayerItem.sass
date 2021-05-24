@@ -1,3 +1,5 @@
+.single-player-item
+  font-family: 'Roboto', sans-serif
 a
   text-decoration: none
   display: inline-block
@@ -8,3 +10,10 @@ a
   border-radius: 50%
   background-position: center
   background-size: cover
+.price
+  position: relative
+  &::after
+    position: absolute
+    content: '$'
+    //font-style: italic
+    right: 0px

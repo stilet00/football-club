@@ -34,7 +34,7 @@ function MenuBar() {
                   className={"nav-button"}
                 >
                   <SupervisorAccountIcon />
-                  Show all players
+                  Show All players
                 </Button>
               </Link>
             </li>
