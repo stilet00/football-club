@@ -64,7 +64,7 @@ function PlayerItem({
         <StyledTableCell
           align="center"
           className={"hiding-fields"}
-        >{`${birthDate[0]} ${birthDate[1]} ${birthDate[2]}`}</StyledTableCell>
+        >{birthDate}</StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
         </StyledTableCell>
