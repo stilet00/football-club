@@ -1,5 +1,5 @@
 import { useHistory, useParams } from "react-router";
-import { useCallback, useState } from "react";
+import { createRef, useCallback, useState } from "react";
 import { DEFAULT_PLAYER } from "../../constants/constants";
 
 export function useForm(players) {
@@ -8,14 +8,15 @@ export function useForm(players) {
   const [player, setPlayer] = useState(
     (players && players.find((item) => item.id === params.id)) || DEFAULT_PLAYER
   );
-  const onDrop = useCallback(
-    (images) => {
-      images.map((file) =>
-        Object.assign(file, {
+  const fileInput = createRef();
+  const makePreview = useCallback(
+    (file) => {
+      if (file) {
+        file = Object.assign(file, {
           preview: URL.createObjectURL(file),
         })
-      );
-      setPlayer({ ...player, photo: images[0] });
+        setPlayer({ ...player, photo: file })
+      }
     },
     [player]
   );
@@ -29,8 +30,9 @@ export function useForm(players) {
   return {
     player,
     onInputChange,
-    onDrop,
+    makePreview,
     history,
     clearFields,
+    fileInput
   };
 }

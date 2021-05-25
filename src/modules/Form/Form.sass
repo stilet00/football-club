@@ -1,13 +1,24 @@
 .players-form
-  width: 90%
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  min-width: 350px
+  min-height: 500px
   box-sizing: border-box
   padding: 5px
   margin: 20px auto
   border-radius: 10px
   box-shadow: 2px 2px 2px lightgray
   background-color: aliceblue
-  div
-    margin-top: 5px
-.MuiDropzoneArea-root
-  min-height: 100px!important
+  .form-thumbnail
+    margin: 20px auto
+    height: 100px
+    width: 100px
+    transition: 0.2s
+    cursor: pointer
+    &:hover
+      opacity: 0.5
+
+//.MuiDropzoneArea-root
+//  min-height: 100px!important
 

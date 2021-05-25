@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -84,6 +84,7 @@ function PlayerItem({
       <CSSTransition
         in={itemsShown && width <= 665}
         classNames="fields"
+        timeout={100}
         unmountOnExit
       >
         <StyledTableRow>

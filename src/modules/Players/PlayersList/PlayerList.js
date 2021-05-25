@@ -36,7 +36,7 @@ const useStyles = makeStyles({
 function PlayerList({ players, deletePlayer }) {
   const classes = useStyles();
   const { path } = useRouteMatch();
-  const { currentPage, switchPages } = usePagination();
+  const { currentPage, goForward, goBack } = usePagination();
   return (
     <>
       <TableContainer component={Paper} className={"players-list"}>
@@ -77,11 +77,11 @@ function PlayerList({ players, deletePlayer }) {
         <Button
           aria-label="back"
           name={"back"}
-          onClick={switchPages}
+          onClick={goBack}
           disabled={currentPage === 1}
           variant={"outlined"}
         >
-          <ArrowBack />
+          <ArrowBack/>
         </Button>
         <Fab aria-label="add" className={"add-button"}>
           <Link to={path + "/add"}>
@@ -92,11 +92,11 @@ function PlayerList({ players, deletePlayer }) {
         <Button
           aria-label="forward"
           name={"forward"}
-          onClick={switchPages}
+          onClick={goForward}
           disabled={players.length - currentPage * PAGINATION_STEP <= 0}
           variant={"outlined"}
         >
-          <ArrowForward />
+          <ArrowForward id={"back"}/>
         </Button>
       </div>
     </>
