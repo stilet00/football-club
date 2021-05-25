@@ -19,7 +19,12 @@ function MenuBar() {
         <Button onClick={toggleMenu} className={"right-menu-button"}>
           <MenuIcon />
         </Button>
-        <CSSTransition in={menuShown} classNames="menu" timeout={100} unmountOnExit>
+        <CSSTransition
+          in={menuShown}
+          classNames="menu"
+          timeout={100}
+          unmountOnExit
+        >
           <ul className={"fall-down-menu"}>
             <li>
               <Link to={path + "players"}>

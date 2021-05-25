@@ -11,6 +11,6 @@ export function usePagination() {
   return {
     currentPage,
     goForward,
-    goBack
+    goBack,
   };
 }

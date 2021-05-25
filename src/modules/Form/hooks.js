@@ -14,8 +14,8 @@ export function useForm(players) {
       if (file) {
         file = Object.assign(file, {
           preview: URL.createObjectURL(file),
-        })
-        setPlayer({ ...player, photo: file })
+        });
+        setPlayer({ ...player, photo: file });
       }
     },
     [player]
@@ -33,6 +33,6 @@ export function useForm(players) {
     makePreview,
     history,
     clearFields,
-    fileInput
+    fileInput,
   };
 }

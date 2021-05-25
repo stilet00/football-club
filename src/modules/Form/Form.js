@@ -1,32 +1,48 @@
-import React, { createRef } from "react";
+import React from "react";
 import { Button, FormGroup, TextField } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
 import ClearAllIcon from "@material-ui/icons/ClearAll";
 import CloseIcon from "@material-ui/icons/Close";
 import "./Form.css";
-import { DropzoneArea } from "material-ui-dropzone";
 import { useForm } from "./hooks";
 function Form({ players, onFormSubmit }) {
-  const { player, onInputChange, makePreview, history, clearFields, fileInput } =
-    useForm(players);
+  const {
+    player,
+    onInputChange,
+    makePreview,
+    history,
+    clearFields,
+    fileInput,
+  } = useForm(players);
+
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        makePreview(fileInput.current.files[0])
         onFormSubmit(player);
       }}
     >
       <FormGroup className={"players-form"}>
         <div
-            className={"thumbnail form-thumbnail"}
-            style={{ backgroundImage: "url(" + player.photo.preview }}
+          className={"thumbnail form-thumbnail"}
+          style={{ backgroundImage: "url(" + player.photo.preview }}
         >
-          <label>
-            Upload file:
-            <input type="file" ref={fileInput} accept={"image/jpeg,image/png,image/gif"} />
-          </label>
+          <input
+            type="file"
+            ref={fileInput}
+            accept={"image/jpeg,image/png,image/gif"}
+            className={"photo-input"}
+          />
         </div>
+
+        <Button
+          variant={"outlined"}
+          color={"primary"}
+          onClick={() => makePreview(fileInput.current.files[0])}
+          className={"save-photo-button"}
+        >
+          Upload
+        </Button>
         <TextField
           id="outlined-basic"
           label="Name"

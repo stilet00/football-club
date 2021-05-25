@@ -81,7 +81,7 @@ function PlayerList({ players, deletePlayer }) {
           disabled={currentPage === 1}
           variant={"outlined"}
         >
-          <ArrowBack/>
+          <ArrowBack />
         </Button>
         <Fab aria-label="add" className={"add-button"}>
           <Link to={path + "/add"}>
@@ -96,7 +96,7 @@ function PlayerList({ players, deletePlayer }) {
           disabled={players.length - currentPage * PAGINATION_STEP <= 0}
           variant={"outlined"}
         >
-          <ArrowForward id={"back"}/>
+          <ArrowForward id={"back"} />
         </Button>
       </div>
     </>
