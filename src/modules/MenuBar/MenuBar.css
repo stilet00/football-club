@@ -12,9 +12,15 @@
   justify-content: space-evenly;
   border-radius: 10px;
   font-family: "Dancing Script", cursive;
+  font-size: 55px;
+  margin: 0;
   text-align: center;
   color: #e31b23;
   text-shadow: 1px 1px 1px white;
+}
+.menu .nav-button {
+  width: 200px;
+  margin-bottom: 10px !important;
 }
 .menu .logo-container {
   display: flex;
@@ -25,9 +31,12 @@
   height: 100%;
   max-width: 50px;
 }
-.menu .right-menu-button {
+.menu .right-menu-button-container {
   display: flex;
   align-items: center;
+}
+.menu .right-menu-button-container .right-menu-button {
+  height: 100%;
 }
 .menu .fall-down-menu {
   z-index: 1000;
@@ -50,6 +59,16 @@
   justify-content: center;
 }
 
+@media (max-width: 665px) {
+  .menu h2 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 500px) {
+  .menu h2 {
+    font-size: 25px;
+  }
+}
 .menu-enter {
   opacity: 0;
   transform: scale(0.9);
@@ -70,11 +89,6 @@
   border-radius: 20px;
   transform: scale(0.9);
   transition: all 1s ease-out;
-}
-
-.nav-button {
-  width: 200px;
-  margin-bottom: 10px !important;
 }
 
 /*# sourceMappingURL=MenuBar.css.map */

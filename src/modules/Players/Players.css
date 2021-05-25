@@ -4,4 +4,10 @@
   align-items: center;
 }
 
+@media (max-width: 665px) {
+  .players {
+    width: 95%;
+  }
+}
+
 /*# sourceMappingURL=Players.css.map */

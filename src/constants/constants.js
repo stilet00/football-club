@@ -8,6 +8,6 @@ export const DEFAULT_PLAYER = {
 };
 export const DEFAULT_THUMBNAIL = {
   preview:
-    "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+    "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
 };
 export const PAGINATION_STEP = 4;

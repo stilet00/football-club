@@ -1,5 +1,31 @@
 .single-player-item
-  font-family: 'Roboto', sans-serif
+  border-bottom: 2px solid rgba(224, 224, 224, 1)
+  td:first-child
+    position: relative
+    button
+      content: ''
+      position: absolute
+      display: none
+      align-items: center
+      justify-content: center
+      width: 30px
+      height: 30px
+      bottom: -17px
+      left: 10px
+      border: none
+      transform: rotate(90deg)
+      border-radius: 50%
+      background: transparent
+      transition: 0.5s
+      &:hover
+        box-shadow: 5px -5px 10px grey
+        background: transparent
+      &.transformed
+        transform: rotate(270deg)
+  &:last-child
+    border: none
+  .MuiTableCell-root
+    border: none
 a
   text-decoration: none
   display: inline-block
@@ -10,10 +36,27 @@ a
   border-radius: 50%
   background-position: center
   background-size: cover
-.price
-  position: relative
-  &::after
-    position: absolute
-    content: '$'
-    font-style: italic
-    right: 0px
+  //animation
+.fields-enter
+  opacity: 0
+  transform: scaleX(0.2)
+
+.fields-enter-active
+  opacity: 1
+  transition: all 2s ease-out
+
+.fields-exit
+  opacity: 1
+
+.fields-exit-active
+  opacity: 0
+  transform: scaleX(0.2)
+  transition: all 2s ease-out
+@media (min-width: 665px)
+  .toggled-row
+    display: none
+@media (max-width: 665px)
+  .single-player-item
+    td:first-child
+      button
+        display: flex

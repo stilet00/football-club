@@ -11,9 +11,14 @@
     justify-content: space-evenly
     border-radius: 10px
     font-family: 'Dancing Script', cursive
+    font-size: 55px
+    margin: 0
     text-align: center
     color: #e31b23
     text-shadow: 1px 1px 1px white
+  .nav-button
+    width: 200px
+    margin-bottom: 10px!important
   .logo-container
     display: flex
     justify-content: center
@@ -21,9 +26,11 @@
       width: 100%
       height: 100%
       max-width: 50px
-  .right-menu-button
+  .right-menu-button-container
     display: flex
     align-items: center
+    .right-menu-button
+      height: 100%
   .fall-down-menu
     z-index: 1000
     position: absolute
@@ -41,6 +48,14 @@
       &:last-child
         display: flex
         justify-content: center
+@media (max-width: 665px)
+  .menu
+    h2
+      font-size: 35px
+@media (max-width: 500px)
+  .menu
+    h2
+      font-size: 25px
 
 //Animation
 .menu-enter
@@ -60,7 +75,5 @@
   border-radius: 20px
   transform: scale(0.9)
   transition: all 1s ease-out
-.nav-button
-  width: 200px
-  margin-bottom: 10px!important
+
 

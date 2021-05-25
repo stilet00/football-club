@@ -29,9 +29,9 @@ function MainPage() {
               />
             )}
           />
+          <Route path={"/"} exact component={Main} />
         </Switch>
       </div>
-      <Main />
     </div>
   );
 }

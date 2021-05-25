@@ -1,20 +1,15 @@
-td:last-child {
-  display: flex;
-  flex-direction: column;
-}
-
-.players-list {
-  min-height: 475px;
-}
-
-@media (max-width: 500px) {
-  th:nth-child(3),
-  th:nth-child(5),
-  th:nth-child(4),
-  td:nth-child(3),
-  td:nth-child(5),
-  td:nth-child(4) {
+@media (max-width: 665px) {
+  th.hiding-fields:nth-child(3),
+  th.hiding-fields:nth-child(4),
+  th.hiding-fields:nth-child(5),
+  td.hiding-fields:nth-child(3),
+  td.hiding-fields:nth-child(4),
+  td.hiding-fields:nth-child(5) {
     display: none;
+  }
+
+  .players-list {
+    min-height: 505px;
   }
 }
 

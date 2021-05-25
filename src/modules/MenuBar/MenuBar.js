@@ -15,16 +15,11 @@ function MenuBar() {
   const { toggleMenu, menuShown, path } = useMenuBar();
   return (
     <div className={"menu"}>
-      <div className="right-menu-button">
-        <Button onClick={toggleMenu}>
+      <div className="right-menu-button-container">
+        <Button onClick={toggleMenu} className={"right-menu-button"}>
           <MenuIcon />
         </Button>
-        <CSSTransition
-          in={menuShown}
-          timeout={100}
-          classNames="menu"
-          unmountOnExit
-        >
+        <CSSTransition in={menuShown} classNames="menu" unmountOnExit>
           <ul className={"fall-down-menu"}>
             <li>
               <Link to={path + "players"}>

@@ -53,7 +53,7 @@ export const PLAYERS = [
     surName: "Gomez",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -65,7 +65,7 @@ export const PLAYERS = [
     surName: "Kabak",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -77,7 +77,7 @@ export const PLAYERS = [
     surName: "Dijk",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -89,7 +89,7 @@ export const PLAYERS = [
     surName: "Tsimikas",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -101,7 +101,7 @@ export const PLAYERS = [
     surName: "Robertson",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -113,7 +113,7 @@ export const PLAYERS = [
     surName: "Davies",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,
@@ -125,7 +125,7 @@ export const PLAYERS = [
     surName: "Matip",
     photo: {
       preview:
-        "https://lh3.googleusercontent.com/proxy/3vSa3E1QXUlacHk4LXBh31UNt05j7YqcVpG70qj5Oi2hi-0WYYqgdQ8CYDak8liYClzaHY-n2GAyljBlSUOZ7UV7vYZCPzPxI7_nEVlZO6VTQ4n0uX8k-WYc_KxQRiJaUQvd7Gcf35xmfqb238L8",
+        "https://horse-canada.com/wp-content/uploads/2014/12/no-thumbnail.jpg",
     },
     birthDate: [15, "june", 1992],
     gamesPlayed: 10,

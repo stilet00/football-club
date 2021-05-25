@@ -17,6 +17,7 @@ import { PAGINATION_STEP } from "../../../constants/constants";
 import { usePagination } from "./hooks";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
+import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -43,11 +44,17 @@ function PlayerList({ players, deletePlayer }) {
           <TableHead>
             <TableRow>
               <StyledTableCell>Name, Surname</StyledTableCell>
-              <StyledTableCell align="right">Photo</StyledTableCell>
-              <StyledTableCell align="right">Date of birth</StyledTableCell>
-              <StyledTableCell align="right">Games played</StyledTableCell>
-              <StyledTableCell align="right">Price</StyledTableCell>
-              <StyledTableCell align="right">Actions</StyledTableCell>
+              <StyledTableCell align="center">Photo</StyledTableCell>
+              <StyledTableCell align="center" className={"hiding-fields"}>
+                Date of birth
+              </StyledTableCell>
+              <StyledTableCell align="center" className={"hiding-fields"}>
+                Games played
+              </StyledTableCell>
+              <StyledTableCell align="center" className={"hiding-fields"}>
+                Price
+              </StyledTableCell>
+              <StyledTableCell align="center">Actions</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -76,9 +83,10 @@ function PlayerList({ players, deletePlayer }) {
         >
           <ArrowBack />
         </Button>
-        <Fab aria-label="add">
+        <Fab aria-label="add" className={"add-button"}>
           <Link to={path + "/add"}>
             <AddIcon />
+            <SupervisedUserCircleIcon />
           </Link>
         </Fab>
         <Button
