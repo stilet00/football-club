@@ -10,6 +10,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "2",
@@ -22,6 +23,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "3",
@@ -34,6 +36,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "4",
@@ -46,6 +49,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "5",
@@ -58,6 +62,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "6",
@@ -70,6 +75,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "7",
@@ -82,6 +88,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "8",
@@ -94,6 +101,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "9",
@@ -106,6 +114,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "10",
@@ -118,6 +127,7 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
   {
     id: "11",
@@ -130,5 +140,6 @@ export const PLAYERS = [
     birthDate: "15 06 2006",
     gamesPlayed: 10,
     price: 1000000,
+    edited: new Date(),
   },
 ];

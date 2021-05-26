@@ -11,8 +11,56 @@ export function useForm(players) {
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setPlayer({...player, birthDate: `${date.getDate()} ${date.getMonth()} ${date.getFullYear()}`})
+    setPlayer({
+      ...player,
+      birthDate: `${date.getDate()} ${getStringMonth(
+        date.getMonth()
+      )} ${date.getFullYear()}`,
+    });
   };
+  function getStringMonth(month) {
+    switch (month) {
+      case 0:
+        month = "January";
+        break;
+      case 1:
+        month = "February";
+        break;
+      case 2:
+        month = "March";
+        break;
+      case 3:
+        month = "April";
+        break;
+      case 4:
+        month = "May";
+        break;
+      case 5:
+        month = "June";
+        break;
+      case 6:
+        month = "July";
+        break;
+      case 7:
+        month = "August";
+        break;
+      case 8:
+        month = "September";
+        break;
+      case 9:
+        month = "October";
+        break;
+      case 10:
+        month = "November";
+        break;
+      case 11:
+        month = "December";
+        break;
+      default:
+        break;
+    }
+    return month;
+  }
   const fileInput = createRef();
   const makePreview = useCallback(
     (file) => {
@@ -26,7 +74,7 @@ export function useForm(players) {
     [player]
   );
   function clearFields() {
-    setPlayer({...DEFAULT_PLAYER, id: player.id});
+    setPlayer({ ...DEFAULT_PLAYER, id: player.id });
   }
   function onInputChange(e) {
     setPlayer({ ...player, [e.target.name]: e.target.value });
@@ -40,6 +88,6 @@ export function useForm(players) {
     clearFields,
     fileInput,
     selectedDate,
-    handleDateChange
+    handleDateChange,
   };
 }

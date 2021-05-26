@@ -5,6 +5,7 @@ export const DEFAULT_PLAYER = {
   birthDate: [15, "june", 1992],
   gamesPlayed: "",
   price: "",
+  edited: new Date(),
 };
 export const DEFAULT_THUMBNAIL = {
   preview:

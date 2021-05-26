@@ -16,7 +16,7 @@ export function useMediaQuery() {
 }
 export function useToggle() {
   const [itemsShown, setItemShown] = useState(false);
-  function toggleItems() {
+  function toggleItems(e) {
     setItemShown(!itemsShown);
   }
   return {

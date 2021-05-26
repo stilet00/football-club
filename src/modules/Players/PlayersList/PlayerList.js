@@ -55,6 +55,9 @@ function PlayerList({ players, deletePlayer }) {
                 Price
               </StyledTableCell>
               <StyledTableCell align="center">Actions</StyledTableCell>
+              <StyledTableCell align="center" className={"hiding-fields"}>
+                Edited
+              </StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

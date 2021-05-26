@@ -37,6 +37,7 @@ function PlayerItem({
   gamesPlayed,
   price,
   deletePlayer,
+  edited,
 }) {
   const [width] = useMediaQuery();
   const match = useRouteMatch();
@@ -61,10 +62,9 @@ function PlayerItem({
             />
           </Link>
         </StyledTableCell>
-        <StyledTableCell
-          align="center"
-          className={"hiding-fields"}
-        >{birthDate}</StyledTableCell>
+        <StyledTableCell align="center" className={"hiding-fields"}>
+          {birthDate}
+        </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
         </StyledTableCell>
@@ -80,6 +80,11 @@ function PlayerItem({
             <DeleteIcon />
           </Button>
         </StyledTableCell>
+        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited
+          .toDateString()
+          .slice(
+            4
+          )} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
       </StyledTableRow>
       <CSSTransition
         in={itemsShown && width <= 665}
