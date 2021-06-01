@@ -6,6 +6,8 @@ import Main from "../../Components/Main/Main";
 import "./MainPage.css";
 import Form from "../Form/Form";
 import { useMainPage } from "./hooks";
+import { Redirect } from "react-router";
+import Location from "../../Components/Location/Location";
 
 function MainPage() {
   const { players, onFormSubmit, deletePlayer } = useMainPage();
@@ -29,7 +31,11 @@ function MainPage() {
               />
             )}
           />
+          <Route path={"/location"} exact component={Location} />
           <Route path={"/"} exact component={Main} />
+          <Route path={"*"}>
+            <Redirect to={"/"} />
+          </Route>
         </Switch>
       </div>
     </div>

@@ -5,7 +5,7 @@
     button
       content: ''
       position: absolute
-      z-index: 1000
+      z-index: 999
       display: none
       align-items: center
       justify-content: center
@@ -42,19 +42,19 @@ a
   //animation
 .fields-enter
   opacity: 0
-  transform: scaleX(0.2)
+  transform: translateY(-100px)
 
 .fields-enter-active
   opacity: 1
-  transition: all 2s ease-out
+  transition: all 2s ease
 
 .fields-exit
   opacity: 1
 
 .fields-exit-active
   opacity: 0
-  transform: scaleX(0.2)
-  transition: all 2s ease-out
+  transform: translateY(-100px)
+  transition: all 2s ease
 @media (min-width: 665px)
   .toggled-row
     display: none

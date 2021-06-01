@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { useMenuBar } from "./hooks";
 import logo from "../../logo.png";
 
@@ -47,6 +48,18 @@ function MenuBar() {
                 >
                   <AddBoxIcon />
                   Add one more player
+                </Button>
+              </Link>
+            </li>
+            <li>
+              <Link to={"/location"}>
+                <Button
+                  onClick={toggleMenu}
+                  variant={"outlined"}
+                  className={"nav-button"}
+                >
+                  <LocationOnIcon />
+                  Home stadium location
                 </Button>
               </Link>
             </li>
