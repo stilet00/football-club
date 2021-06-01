@@ -5,6 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import "./Form.css";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { useForm } from "./hooks";
+import SmallLogo from "../../Components/SmallLogo/SmallLogo";
 function Form({ players, onFormSubmit }) {
   const {
     player,
@@ -18,6 +19,7 @@ function Form({ players, onFormSubmit }) {
   } = useForm(players);
 
   return (
+      <>
     <form
       onSubmit={(e) => {
         e.preventDefault();
@@ -102,6 +104,8 @@ function Form({ players, onFormSubmit }) {
         </div>
       </FormGroup>
     </form>
+        <SmallLogo />
+      </>
   );
 }
 
