@@ -14,7 +14,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
 import { PAGINATION_STEP } from "../../../constants/constants";
-import { usePagination } from "./hooks";
+import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
@@ -90,7 +90,6 @@ function PlayerList({ players, deletePlayer }) {
         <Fab aria-label="add" className={"add-button"}>
           <Link to={path + "/add"}>
             <AddIcon />
-            <SupervisedUserCircleIcon />
           </Link>
         </Fab>
         <Button
