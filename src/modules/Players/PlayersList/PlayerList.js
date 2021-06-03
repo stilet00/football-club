@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
 import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
-import { PAGINATION_STEP } from "../../../constants/constants";
+import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
@@ -44,8 +44,7 @@ function PlayerList({ players, deletePlayer }) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Name, Surname</StyledTableCell>
-              <StyledTableCell align="center">Photo</StyledTableCell>
+              <StyledTableCell>Players</StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Date of birth
               </StyledTableCell>
@@ -55,7 +54,7 @@ function PlayerList({ players, deletePlayer }) {
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Price
               </StyledTableCell>
-              <StyledTableCell align="center">Actions</StyledTableCell>
+              <StyledTableCell align="center">Action</StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Edited
               </StyledTableCell>
@@ -84,10 +83,11 @@ function PlayerList({ players, deletePlayer }) {
           onClick={goBack}
           disabled={currentPage === 1}
           variant={"outlined"}
+          className={"action-button"}
         >
           <ArrowBack />
         </Button>
-        <Fab aria-label="add" className={"add-button"}>
+        <Fab aria-label="add" className={"action-button"}>
           <Link to={path + "/add"}>
             <AddIcon />
           </Link>
@@ -98,6 +98,7 @@ function PlayerList({ players, deletePlayer }) {
           onClick={goForward}
           disabled={players.length - currentPage * PAGINATION_STEP <= 0}
           variant={"outlined"}
+          className={"action-button"}
         >
           <ArrowForward id={"back"} />
         </Button>

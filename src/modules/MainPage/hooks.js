@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { PLAYERS } from "../../mocks/mocks";
+import { PLAYERS } from "../../shared/mocks/mocks";
 import { useHistory } from "react-router";
-import { DEFAULT_THUMBNAIL } from "../../constants/constants";
+import { DEFAULT_THUMBNAIL } from "../../shared/constants/constants";
 
 export function useMainPage() {
   const [players, setPlayers] = useState(PLAYERS);
@@ -10,7 +10,8 @@ export function useMainPage() {
     setPlayers(players.filter((item) => item.id !== id));
   }
   function onFormSubmit(player) {
-    if (!player.photo) {
+
+    if (!player.photo.preview) {
       player.photo = DEFAULT_THUMBNAIL;
     }
     if (player.id) {
@@ -18,9 +19,11 @@ export function useMainPage() {
         players.map((item) => (item.id === player.id ? player : item))
       );
     } else {
-      player.id = Date.now();
+      player.id = String(Date.now());
       setPlayers([...players, player]);
+      console.log(player)
     }
+
     history.push("/players");
   }
   return {

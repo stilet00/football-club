@@ -12,33 +12,42 @@
       width: 30px
       height: 30px
       bottom: -17px
-      left: 10px
+      left: 100px
       border: none
       transform: rotate(90deg)
       border-radius: 50%
-      background: transparent
+      background: red
+      color: aliceblue
       transition: 0.5s
-      &:hover
-        box-shadow: 5px -5px 10px grey
-        background: transparent
       &.transformed
         transform: rotate(270deg)
   &:last-child
     border: none
   .MuiTableCell-root
     border: none
+.image-name-container
+  display: flex!important
+  align-items: center
 a
   text-decoration: none
   display: inline-block
 .thumbnail
   width: 50px
   height: 50px
+  margin-right: 15px
   border: 1px solid #e31b23
   border-radius: 50%
   background-position: center
   background-size: cover
 
-
+.shown-menu-cell
+  width: 49%
+  border: 1px solid grey
+  background: white
+  &:first-child
+    border-left: none
+  &:last-child
+    border-right: none
   //animation
 .fields-enter
   opacity: 0

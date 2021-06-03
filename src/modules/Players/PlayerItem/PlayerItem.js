@@ -31,7 +31,7 @@ const StyledTableCell = withStyles((theme) => ({
 function PlayerItem({
   id,
   name,
-  surName,
+  surname,
   photo,
   birthDate,
   gamesPlayed,
@@ -42,28 +42,70 @@ function PlayerItem({
   const [width] = useMediaQuery();
   const match = useRouteMatch();
   const { itemsShown, toggleItems } = useToggle();
+  function getStringMonth(month) {
+    switch (month) {
+      case 0:
+        month = "January";
+        break;
+      case 1:
+        month = "February";
+        break;
+      case 2:
+        month = "March";
+        break;
+      case 3:
+        month = "April";
+        break;
+      case 4:
+        month = "May";
+        break;
+      case 5:
+        month = "June";
+        break;
+      case 6:
+        month = "July";
+        break;
+      case 7:
+        month = "August";
+        break;
+      case 8:
+        month = "September";
+        break;
+      case 9:
+        month = "October";
+        break;
+      case 10:
+        month = "November";
+        break;
+      case 11:
+        month = "December";
+        break;
+      default:
+        break;
+    }
+    return month;
+  }
   return (
     <>
       <StyledTableRow className={"single-player-item"}>
-        <StyledTableCell scope="row">
-          {`${name} ${surName}`}
+        <StyledTableCell scope="row" className={"image-name-container"} align="center">
+          <Link to={match.path + "/" + id}>
+            <div
+                className={"thumbnail"}
+                style={{ backgroundImage: "url(" + photo.preview }}
+            />
+          </Link>
+          {`${name} ${surname}`}
           <button
             className={itemsShown ? "transformed" : ""}
             onClick={toggleItems}
+
           >
             <ArrowForwardIosIcon />
           </button>
         </StyledTableCell>
-        <StyledTableCell align="right">
-          <Link to={match.path + "/" + id}>
-            <div
-              className={"thumbnail"}
-              style={{ backgroundImage: "url(" + photo.preview }}
-            />
-          </Link>
-        </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {birthDate}
+          {birthDate.getDate() + " " + getStringMonth(birthDate.getMonth()) + " " + birthDate.getFullYear()}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -80,11 +122,7 @@ function PlayerItem({
             <DeleteIcon />
           </Button>
         </StyledTableCell>
-        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited
-          .toDateString()
-          .slice(
-            4
-          )} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
+        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited.toDateString().slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
       </StyledTableRow>
       <CSSTransition
         in={itemsShown && width <= 665}
@@ -92,10 +130,20 @@ function PlayerItem({
         timeout={100}
         unmountOnExit
       >
-        <StyledTableRow>
-          <StyledTableCell align="center">{`${birthDate[0]} ${birthDate[1]} ${birthDate[2]}`}</StyledTableCell>
-          <StyledTableCell align="center">{gamesPlayed} games</StyledTableCell>
-          <StyledTableCell align="center">{price} $</StyledTableCell>
+        <StyledTableRow >
+          <StyledTableCell className={'shown-menu-cell'} align="center">{gamesPlayed + " " + (gamesPlayed > 1 ? "games played" : "game played")}</StyledTableCell>
+          <StyledTableCell className={'shown-menu-cell'} align="center">Price: {price} $</StyledTableCell>
+        </StyledTableRow>
+      </CSSTransition>
+      <CSSTransition
+          in={itemsShown && width <= 665}
+          classNames="fields"
+          timeout={100}
+          unmountOnExit
+      >
+        <StyledTableRow >
+          <StyledTableCell className={'shown-menu-cell'} align="center"  >Birthdate: {birthDate.getFullYear()}</StyledTableCell>
+          <StyledTableCell className={'shown-menu-cell'} align="center"  >Edited: {`${edited.toDateString().slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
         </StyledTableRow>
       </CSSTransition>
     </>
