@@ -10,7 +10,7 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { useMenuBar } from "./hooks";
-import logo from "../../logo.png";
+import logo from "../../images/logo.png";
 
 function MenuBar() {
   const { toggleMenu, menuShown, path } = useMenuBar();

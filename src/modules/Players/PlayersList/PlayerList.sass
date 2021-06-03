@@ -2,7 +2,14 @@
   min-height: 425px
 .action-button
   background-color: aliceblue !important
+.MuiTableCell-root
+  border-right: 1px solid white
+  &:last-child
+    border-right: none
 @media (max-width: 665px)
+  .MuiTableCell-root
+    width: 49%
+
   th.hiding-fields, td.hiding-fields
         display: none
   .players-list

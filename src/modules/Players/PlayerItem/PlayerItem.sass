@@ -3,24 +3,26 @@
   td:first-child
     position: relative
     button
-      content: ''
       position: absolute
+      content: ''
       z-index: 999
       display: none
       align-items: center
       justify-content: center
       width: 30px
       height: 30px
-      bottom: -17px
-      left: 100px
+      bottom: -15px
+      left: 90px
+      margin-right: 10px
       border: none
       transform: rotate(90deg)
-      border-radius: 50%
-      background: red
+      border-radius: 10px
+      background: black
       color: aliceblue
       transition: 0.5s
       &.transformed
         transform: rotate(270deg)
+        background: red
   &:last-child
     border: none
   .MuiTableCell-root
@@ -28,9 +30,11 @@
 .image-name-container
   display: flex!important
   align-items: center
-a
-  text-decoration: none
-  display: inline-block
+  margin: 0 auto
+  width: 100%!important
+//a
+//  text-decoration: none
+//  display: block
 .thumbnail
   width: 50px
   height: 50px
@@ -67,6 +71,7 @@ a
 @media (min-width: 665px)
   .toggled-row
     display: none
+
 @media (max-width: 665px)
   .single-player-item
     td:first-child
