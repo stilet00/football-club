@@ -17,7 +17,6 @@ import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
-import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
 import SmallLogo from "../../../Components/SmallLogo/SmallLogo";
 const StyledTableCell = withStyles((theme) => ({
   head: {

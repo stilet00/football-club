@@ -1,4 +1,4 @@
-let date = new Date("1987-11-07")
+let date = new Date("1987-11-07");
 export const PLAYERS = [
   {
     id: "1",
@@ -11,7 +11,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 1,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "2",
@@ -24,7 +24,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "3",
@@ -37,7 +37,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "4",
@@ -50,7 +50,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "5",
@@ -63,7 +63,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "6",
@@ -76,7 +76,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "7",
@@ -89,7 +89,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "8",
@@ -102,7 +102,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "9",
@@ -115,7 +115,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "10",
@@ -128,7 +128,7 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
   {
     id: "11",
@@ -141,6 +141,6 @@ export const PLAYERS = [
     birthDate: date,
     gamesPlayed: 10,
     price: 1000000,
-    edited: new Date(),
+    edited: null,
   },
 ];

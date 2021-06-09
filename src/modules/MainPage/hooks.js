@@ -10,7 +10,6 @@ export function useMainPage() {
     setPlayers(players.filter((item) => item.id !== id));
   }
   function onFormSubmit(player) {
-
     if (!player.photo.preview) {
       player.photo = DEFAULT_THUMBNAIL;
     }
@@ -19,9 +18,9 @@ export function useMainPage() {
         players.map((item) => (item.id === player.id ? player : item))
       );
     } else {
-      player.id = String(Date.now());
+      player = { ...player, id: String(Date.now()), edited: null };
       setPlayers([...players, player]);
-      console.log(player)
+      console.log(player);
     }
 
     history.push("/players");
