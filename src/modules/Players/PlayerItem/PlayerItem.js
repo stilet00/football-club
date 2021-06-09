@@ -88,31 +88,24 @@ function PlayerItem({
   return (
     <>
       <StyledTableRow className={"single-player-item"}>
-        <StyledTableCell
-          scope="row"
-          className={"image-name-container"}
-          align="center"
-        >
-          <button
-            className={itemsShown ? "transformed" : ""}
-            onClick={toggleItems}
-          >
-            <ArrowForwardIosIcon />
-          </button>
+        <StyledTableCell scope="row" className={"image-name-container"} align="center">
           <Link to={match.path + "/" + id}>
             <div
-              className={"thumbnail"}
-              style={{ backgroundImage: "url(" + photo.preview }}
+                className={"thumbnail"}
+                style={{ backgroundImage: "url(" + photo.preview }}
             />
           </Link>
           {`${name} ${surname}`}
+          <button
+            className={itemsShown ? "transformed" : ""}
+            onClick={toggleItems}
+
+          >
+            <ArrowForwardIosIcon />
+          </button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {birthDate.getDate() +
-            " " +
-            getStringMonth(birthDate.getMonth()) +
-            " " +
-            birthDate.getFullYear()}
+          {birthDate.getDate() + " " + getStringMonth(birthDate.getMonth()) + " " + birthDate.getFullYear()}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -129,11 +122,7 @@ function PlayerItem({
             <DeleteIcon />
           </Button>
         </StyledTableCell>
-        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited
-          .toDateString()
-          .slice(
-            4
-          )} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
+        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited.toDateString().slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
       </StyledTableRow>
       <CSSTransition
         in={itemsShown && width <= 665}
@@ -141,33 +130,20 @@ function PlayerItem({
         timeout={100}
         unmountOnExit
       >
-        <StyledTableRow>
-          <StyledTableCell className={"shown-menu-cell"} align="center">
-            {gamesPlayed +
-              " " +
-              (gamesPlayed > 1 ? "games played" : "game played")}
-          </StyledTableCell>
-          <StyledTableCell className={"shown-menu-cell"} align="center">
-            Price: {price} $
-          </StyledTableCell>
+        <StyledTableRow >
+          <StyledTableCell className={'shown-menu-cell'} align="center">{gamesPlayed + " " + (gamesPlayed > 1 ? "games played" : "game played")}</StyledTableCell>
+          <StyledTableCell className={'shown-menu-cell'} align="center">Price: {price} $</StyledTableCell>
         </StyledTableRow>
       </CSSTransition>
       <CSSTransition
-        in={itemsShown && width <= 665}
-        classNames="fields"
-        timeout={100}
-        unmountOnExit
+          in={itemsShown && width <= 665}
+          classNames="fields"
+          timeout={100}
+          unmountOnExit
       >
-        <StyledTableRow>
-          <StyledTableCell className={"shown-menu-cell"} align="center">
-            Birthdate: {birthDate.getFullYear()}
-          </StyledTableCell>
-          <StyledTableCell className={"shown-menu-cell"} align="center">
-            Edited:{" "}
-            {`${edited
-              .toDateString()
-              .slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}
-          </StyledTableCell>
+        <StyledTableRow >
+          <StyledTableCell className={'shown-menu-cell'} align="center"  >Birthdate: {birthDate.getFullYear()}</StyledTableCell>
+          <StyledTableCell className={'shown-menu-cell'} align="center"  >Edited: {`${edited.toDateString().slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
         </StyledTableRow>
       </CSSTransition>
     </>

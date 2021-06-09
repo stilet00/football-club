@@ -3,12 +3,10 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
-}
+  height: 80vh; }
 
 .App-logo {
-  height: 50vh;
-  pointer-events: none;
-}
+  height: 15vmin;
+  pointer-events: none; }
 
 /*# sourceMappingURL=Main.css.map */

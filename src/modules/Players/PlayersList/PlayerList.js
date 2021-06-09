@@ -44,7 +44,7 @@ function PlayerList({ players, deletePlayer }) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell align="center">Players</StyledTableCell>
+              <StyledTableCell>Players</StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Date of birth
               </StyledTableCell>

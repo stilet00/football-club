@@ -10,6 +10,7 @@ export function useMainPage() {
     setPlayers(players.filter((item) => item.id !== id));
   }
   function onFormSubmit(player) {
+
     if (!player.photo.preview) {
       player.photo = DEFAULT_THUMBNAIL;
     }
@@ -20,7 +21,7 @@ export function useMainPage() {
     } else {
       player.id = String(Date.now());
       setPlayers([...players, player]);
-      console.log(player);
+      console.log(player)
     }
 
     history.push("/players");

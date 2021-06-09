@@ -1,45 +1,38 @@
 .single-player-item {
-  border-bottom: 2px solid #e0e0e0;
-}
-.single-player-item td:first-child {
-  position: relative;
-}
-.single-player-item td:first-child button {
-  position: absolute;
-  content: "";
-  z-index: 999;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  bottom: -15px;
-  left: 90px;
-  margin-right: 10px;
-  border: none;
-  transform: rotate(90deg);
-  border-radius: 10px;
-  background: black;
-  color: aliceblue;
-  transition: 0.5s;
-}
-.single-player-item td:first-child button.transformed {
-  transform: rotate(270deg);
-  background: red;
-}
-.single-player-item:last-child {
-  border: none;
-}
-.single-player-item .MuiTableCell-root {
-  border: none;
-}
+  border-bottom: 2px solid #e0e0e0; }
+  .single-player-item td:first-child {
+    position: relative; }
+    .single-player-item td:first-child button {
+      content: "";
+      position: absolute;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      bottom: -17px;
+      left: 100px;
+      border: none;
+      transform: rotate(90deg);
+      border-radius: 50%;
+      background: red;
+      color: aliceblue;
+      transition: 0.5s; }
+      .single-player-item td:first-child button.transformed {
+        transform: rotate(270deg); }
+  .single-player-item:last-child {
+    border: none; }
+  .single-player-item .MuiTableCell-root {
+    border: none; }
 
 .image-name-container {
   display: flex !important;
-  align-items: center;
-  margin: 0 auto;
-  width: 100% !important;
-}
+  align-items: center; }
+
+a {
+  text-decoration: none;
+  display: inline-block; }
 
 .thumbnail {
   width: 50px;
@@ -48,50 +41,38 @@
   border: 1px solid #e31b23;
   border-radius: 50%;
   background-position: center;
-  background-size: cover;
-}
+  background-size: cover; }
 
 .shown-menu-cell {
   width: 49%;
   border: 1px solid grey;
-  background: white;
-}
-.shown-menu-cell:first-child {
-  border-left: none;
-}
-.shown-menu-cell:last-child {
-  border-right: none;
-}
+  background: white; }
+  .shown-menu-cell:first-child {
+    border-left: none; }
+  .shown-menu-cell:last-child {
+    border-right: none; }
 
 .fields-enter {
   opacity: 0;
-  transform: translateY(-100px);
-}
+  transform: translateY(-100px); }
 
 .fields-enter-active {
   opacity: 1;
-  transition: all 2s ease;
-}
+  transition: all 2s ease; }
 
 .fields-exit {
-  opacity: 1;
-}
+  opacity: 1; }
 
 .fields-exit-active {
   opacity: 0;
   transform: translateY(-100px);
-  transition: all 2s ease;
-}
+  transition: all 2s ease; }
 
 @media (min-width: 665px) {
   .toggled-row {
-    display: none;
-  }
-}
+    display: none; } }
 @media (max-width: 665px) {
   .single-player-item td:first-child button {
-    display: flex;
-  }
-}
+    display: flex; } }
 
 /*# sourceMappingURL=PlayerItem.css.map */
