@@ -20,7 +20,6 @@ export function useMainPage() {
     } else {
       player = { ...player, id: String(Date.now()), edited: null };
       setPlayers([...players, player]);
-      console.log(player);
     }
 
     history.push("/players");

@@ -17,7 +17,6 @@ import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
-import SmallLogo from "../../../Components/SmallLogo/SmallLogo";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -102,7 +101,6 @@ function PlayerList({ players, deletePlayer }) {
           <ArrowForward id={"back"} />
         </Button>
       </div>
-      <SmallLogo />
     </>
   );
 }

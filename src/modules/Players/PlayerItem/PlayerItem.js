@@ -10,7 +10,6 @@ import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import { useMediaQuery, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
-import moment from "moment";
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -43,49 +42,6 @@ function PlayerItem({
   const [width] = useMediaQuery();
   const match = useRouteMatch();
   const { itemsShown, toggleItems } = useToggle();
-  function getStringMonth(month) {
-    switch (month) {
-      case 0:
-        month = "January";
-        break;
-      case 1:
-        month = "February";
-        break;
-      case 2:
-        month = "March";
-        break;
-      case 3:
-        month = "April";
-        break;
-      case 4:
-        month = "May";
-        break;
-      case 5:
-        month = "June";
-        break;
-      case 6:
-        month = "July";
-        break;
-      case 7:
-        month = "August";
-        break;
-      case 8:
-        month = "September";
-        break;
-      case 9:
-        month = "October";
-        break;
-      case 10:
-        month = "November";
-        break;
-      case 11:
-        month = "December";
-        break;
-      default:
-        break;
-    }
-    return month;
-  }
   return (
     <>
       <StyledTableRow className={"single-player-item"}>
@@ -109,11 +65,7 @@ function PlayerItem({
           </button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {birthDate.getDate() +
-            " " +
-            getStringMonth(birthDate.getMonth()) +
-            " " +
-            birthDate.getFullYear()}
+          {birthDate.format("MMM Do YYYY")}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -159,7 +111,7 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            Birthdate: {birthDate.getFullYear()}
+            Birthdate: {birthDate.format("MMM Do YYYY")}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null ? "Edited: " + edited : "Not edited"}

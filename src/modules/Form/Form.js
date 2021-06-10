@@ -4,9 +4,10 @@ import CloseIcon from "@material-ui/icons/Close";
 import "./Form.css";
 import { KeyboardDatePicker } from "@material-ui/pickers";
 import { useForm } from "./hooks";
-import SmallLogo from "../../Components/SmallLogo/SmallLogo";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import moment from "moment"
+import MomentUtils from "@date-io/moment";
+import moment from "moment";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 function Form({ players, onFormSubmit }) {
   const {
     player,
@@ -21,11 +22,14 @@ function Form({ players, onFormSubmit }) {
     errors,
   } = useForm(players);
   return (
-    <>
+    <MuiPickersUtilsProvider utils={MomentUtils}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          onFormSubmit({ ...player, edited: moment().format('MMMM Do YYYY, h:mm') });
+          onFormSubmit({
+            ...player,
+            edited: moment().format("MMMM Do YYYY, h:mm"),
+          });
         }}
       >
         <FormGroup className={"players-form"}>
@@ -99,7 +103,7 @@ function Form({ players, onFormSubmit }) {
             margin="normal"
             id="date-picker-dialog"
             label="Player's birth date"
-            format="MM/dd/yyyy"
+            format="YYYY-MM-DD"
             value={selectedDate}
             className={"datepicker"}
             onChange={handleDateChange}
@@ -132,8 +136,7 @@ function Form({ players, onFormSubmit }) {
           </div>
         </FormGroup>
       </form>
-      <SmallLogo />
-    </>
+    </MuiPickersUtilsProvider>
   );
 }
 

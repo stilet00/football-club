@@ -1,4 +1,6 @@
-let date = new Date("1987-11-07");
+import moment from "moment";
+let date = moment("1987 11 06", "YYYY MM DO");
+
 export const PLAYERS = [
   {
     id: "1",

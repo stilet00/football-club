@@ -14,6 +14,7 @@
 
   .players-list {
     min-height: 505px;
+    margin-bottom: 70px;
   }
 }
 

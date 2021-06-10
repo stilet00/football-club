@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import SportsSoccerIcon from "@material-ui/icons/SportsSoccer";
 import "./MenuBar.css";
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
@@ -10,7 +9,7 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import { useMenuBar } from "./hooks";
-import logo from "../../logo.png";
+import logo from "../../images/logo.png";
 
 function MenuBar() {
   const { toggleMenu, menuShown, path } = useMenuBar();
@@ -71,9 +70,7 @@ function MenuBar() {
           </ul>
         </CSSTransition>
       </div>
-      <h2>
-        <SportsSoccerIcon /> Liverpool players <SportsSoccerIcon />
-      </h2>
+      <h2>Liverpool players</h2>
       <div className={"logo-container"}>
         <img src={logo} className={"header-logo"} alt="logo" />
       </div>

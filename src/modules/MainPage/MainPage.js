@@ -2,17 +2,25 @@ import React from "react";
 import MenuBar from "../MenuBar/MenuBar";
 import { Switch, Route } from "react-router-dom";
 import Players from "../Players/Players";
-import Main from "../../Components/Main/Main";
 import "./MainPage.css";
 import Form from "../Form/Form";
 import { useMainPage } from "./hooks";
 import { Redirect } from "react-router";
 import Location from "../../Components/Location/Location";
+import background from "../../images/background.jpg";
 
 function MainPage() {
   const { players, onFormSubmit, deletePlayer } = useMainPage();
   return (
-    <div className={"main-page"}>
+    <div
+      className={"main-page"}
+      style={{
+        backgroundImage: "url(" + background + ")",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <MenuBar />
       <div className={"main-container"}>
         <Switch>
@@ -32,7 +40,6 @@ function MainPage() {
             )}
           />
           <Route path={"/location"} exact component={Location} />
-          <Route path={"/"} exact component={Main} />
           <Route path={"*"}>
             <Redirect to={"/"} />
           </Route>
