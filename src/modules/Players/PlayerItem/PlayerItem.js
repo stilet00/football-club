@@ -10,6 +10,7 @@ import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 import { useMediaQuery, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
+import moment from "moment";
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -65,7 +66,7 @@ function PlayerItem({
           </button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {birthDate.format("MMM Do YYYY")}
+          {moment().diff(birthDate, 'years')}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -83,7 +84,7 @@ function PlayerItem({
           </Button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {edited !== null ? edited + "" : "Not edited"}
+          {edited !== null ? edited.fromNow() : "Not edited"}
         </StyledTableCell>
       </StyledTableRow>
       <CSSTransition
@@ -111,10 +112,10 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            Birthdate: {birthDate.format("MMM Do YYYY")}
+            {`${moment().diff(birthDate, 'years')} years old`}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {edited !== null ? "Edited: " + edited : "Not edited"}
+            {edited !== null ? "Edited " + edited.fromNow() : "Not edited"}
           </StyledTableCell>
         </StyledTableRow>
       </CSSTransition>

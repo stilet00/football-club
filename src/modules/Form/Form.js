@@ -28,7 +28,7 @@ function Form({ players, onFormSubmit }) {
           e.preventDefault();
           onFormSubmit({
             ...player,
-            edited: moment().format("MMMM Do YYYY, h:mm"),
+            edited: moment(),
           });
         }}
       >

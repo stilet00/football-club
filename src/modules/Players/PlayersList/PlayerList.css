@@ -1,21 +1,17 @@
 .players-list {
   min-height: 425px;
-}
+  min-width: 691px; }
 
 .action-button {
-  background-color: aliceblue !important;
-}
+  background-color: aliceblue !important; }
 
 @media (max-width: 665px) {
-  th.hiding-fields,
-  td.hiding-fields {
-    display: none;
-  }
+  th.hiding-fields, td.hiding-fields {
+    display: none; }
 
   .players-list {
     min-height: 505px;
     margin-bottom: 70px;
-  }
-}
+    min-width: 0; } }
 
 /*# sourceMappingURL=PlayerList.css.map */

@@ -44,7 +44,7 @@ function PlayerList({ players, deletePlayer }) {
             <TableRow>
               <StyledTableCell>Players</StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Date of birth
+                Age
               </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Games played
