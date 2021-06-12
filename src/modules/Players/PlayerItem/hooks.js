@@ -1,4 +1,5 @@
 import { useLayoutEffect, useState } from "react";
+import { useHistory, useRouteMatch } from "react-router";
 
 export function useMediaQuery() {
   const [screenSize, setScreenSize] = useState([0, 0]);
@@ -16,11 +17,22 @@ export function useMediaQuery() {
 }
 export function useToggle() {
   const [itemsShown, setItemShown] = useState(false);
-  function toggleItems(e) {
+  function toggleItems() {
     setItemShown(!itemsShown);
   }
+
   return {
     itemsShown,
     toggleItems,
+  };
+}
+export function usePlayerItem() {
+  const { path } = useRouteMatch();
+  const history = useHistory();
+  function onPlayerClick(id) {
+    history.push(path + "/" + id);
+  }
+  return {
+    onPlayerClick,
   };
 }

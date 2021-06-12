@@ -1,17 +1,25 @@
 .players-list {
   min-height: 425px;
-  min-width: 691px; }
+  min-width: 715px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
+}
 
 .action-button {
-  background-color: aliceblue !important; }
+  background-color: aliceblue !important;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
+}
 
 @media (max-width: 665px) {
-  th.hiding-fields, td.hiding-fields {
-    display: none; }
+  th.hiding-fields,
+  td.hiding-fields {
+    display: none;
+  }
 
   .players-list {
     min-height: 505px;
     margin-bottom: 70px;
-    min-width: 0; } }
+    min-width: 0;
+  }
+}
 
 /*# sourceMappingURL=PlayerList.css.map */

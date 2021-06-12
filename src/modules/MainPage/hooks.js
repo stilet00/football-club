@@ -6,7 +6,8 @@ import { DEFAULT_THUMBNAIL } from "../../shared/constants/constants";
 export function useMainPage() {
   const [players, setPlayers] = useState(PLAYERS);
   const history = useHistory();
-  function deletePlayer(id) {
+  function deletePlayer(event, id) {
+    event.stopPropagation();
     setPlayers(players.filter((item) => item.id !== id));
   }
   function onFormSubmit(player) {

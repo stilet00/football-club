@@ -9,8 +9,9 @@
   padding: 5px;
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: 2px 2px 2px lightgray;
-  background-color: aliceblue;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+  background: #00b2a9;
+  background: radial-gradient(circle, #00b2a9 46%, #003c33 89%, #00b2a9 255%);
 }
 .players-form .save-photo-button {
   width: 30%;

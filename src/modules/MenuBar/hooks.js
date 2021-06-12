@@ -7,10 +7,14 @@ export function useMenuBar() {
   function toggleMenu() {
     setMenuShown(!menuShown);
   }
+  function handleClickAway() {
+    setMenuShown(false);
+  }
 
   return {
     menuShown,
     toggleMenu,
     path,
+    handleClickAway,
   };
 }

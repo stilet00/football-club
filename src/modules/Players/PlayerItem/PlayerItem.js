@@ -6,9 +6,7 @@ import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import "./PlayerItem.css";
-import { useRouteMatch } from "react-router";
-import { Link } from "react-router-dom";
-import { useMediaQuery, useToggle } from "./hooks";
+import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import moment from "moment";
 const StyledTableRow = withStyles((theme) => ({
@@ -41,22 +39,23 @@ function PlayerItem({
   edited,
 }) {
   const [width] = useMediaQuery();
-  const match = useRouteMatch();
+  const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
   return (
     <>
-      <StyledTableRow className={"single-player-item"}>
+      <StyledTableRow
+        className={"single-player-item"}
+        onClick={(e) => onPlayerClick(e, id)}
+      >
         <StyledTableCell
           scope="row"
           className={"image-name-container"}
           align="center"
         >
-          <Link to={match.path + "/" + id}>
-            <div
-              className={"thumbnail"}
-              style={{ backgroundImage: "url(" + photo.preview }}
-            />
-          </Link>
+          <div
+            className={"thumbnail"}
+            style={{ backgroundImage: "url(" + photo.preview }}
+          />
           {`${name} ${surname}`}
           <button
             className={itemsShown ? "transformed" : ""}
@@ -66,7 +65,7 @@ function PlayerItem({
           </button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {moment().diff(birthDate, 'years')}
+          {moment().diff(birthDate, "years")}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -78,7 +77,7 @@ function PlayerItem({
           <Button
             size={"small"}
             className={"delete-button"}
-            onClick={() => deletePlayer(id)}
+            onClick={(event) => deletePlayer(event, id)}
           >
             <DeleteIcon />
           </Button>
@@ -112,7 +111,7 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {`${moment().diff(birthDate, 'years')} years old`}
+            {`${moment().diff(birthDate, "years")} years old`}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null ? "Edited " + edited.fromNow() : "Not edited"}
