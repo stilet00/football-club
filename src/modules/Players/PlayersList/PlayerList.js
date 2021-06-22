@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import PlayerItem from "../PlayerItem/PlayerItem";
 import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import AddIcon from "@material-ui/icons/Add";
 import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
@@ -65,11 +66,21 @@ function PlayerList({ players, deletePlayer }) {
                 currentPage * PAGINATION_STEP
               )
               .map((player) => (
-                <PlayerItem
-                  key={player.id}
-                  {...player}
-                  deletePlayer={deletePlayer}
-                />
+                <SwitchTransition mode={"out-in"}>
+                  <CSSTransition
+                    key={player.id}
+                    addEndListener={(node, done) => {
+                      node.addEventListener("transitionend", done, false);
+                    }}
+                    classNames={"fade"}
+                  >
+                    <PlayerItem
+                      key={player.id}
+                      {...player}
+                      deletePlayer={deletePlayer}
+                    />
+                  </CSSTransition>
+                </SwitchTransition>
               ))}
           </TableBody>
         </Table>

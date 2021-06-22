@@ -9,6 +9,31 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
 }
 
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-20%);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20%);
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 500ms, transform 500ms;
+}
+
 @media (max-width: 665px) {
   th.hiding-fields,
   td.hiding-fields {

@@ -45,7 +45,7 @@ function PlayerItem({
     <>
       <StyledTableRow
         className={"single-player-item"}
-        onClick={(e) => onPlayerClick(e, id)}
+        onClick={(e) => onPlayerClick(id)}
       >
         <StyledTableCell
           scope="row"
