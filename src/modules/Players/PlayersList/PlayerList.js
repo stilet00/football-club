@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import PlayerItem from "../PlayerItem/PlayerItem";
 import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { CSSTransition, SwitchTransition } from "react-transition-group";
 import AddIcon from "@material-ui/icons/Add";
 import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
@@ -17,8 +18,6 @@ import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
-import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
-import SmallLogo from "../../../Components/SmallLogo/SmallLogo";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -44,9 +43,9 @@ function PlayerList({ players, deletePlayer }) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell align="center">Players</StyledTableCell>
+              <StyledTableCell>Players</StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Date of birth
+                Age
               </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Games played
@@ -67,11 +66,21 @@ function PlayerList({ players, deletePlayer }) {
                 currentPage * PAGINATION_STEP
               )
               .map((player) => (
-                <PlayerItem
-                  key={player.id}
-                  {...player}
-                  deletePlayer={deletePlayer}
-                />
+                <SwitchTransition mode={"out-in"}>
+                  <CSSTransition
+                    key={player.id}
+                    addEndListener={(node, done) => {
+                      node.addEventListener("transitionend", done, false);
+                    }}
+                    classNames={"fade"}
+                  >
+                    <PlayerItem
+                      key={player.id}
+                      {...player}
+                      deletePlayer={deletePlayer}
+                    />
+                  </CSSTransition>
+                </SwitchTransition>
               ))}
           </TableBody>
         </Table>
@@ -103,7 +112,6 @@ function PlayerList({ players, deletePlayer }) {
           <ArrowForward id={"back"} />
         </Button>
       </div>
-      <SmallLogo />
     </>
   );
 }

@@ -1,23 +1,40 @@
 .players-list {
   min-height: 425px;
+  min-width: 715px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
 }
 
 .action-button {
   background-color: aliceblue !important;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
 }
 
-.MuiTableCell-root {
-  border-right: 1px solid white;
+.fade-enter {
+  opacity: 0;
+  transform: translateY(-20%);
 }
-.MuiTableCell-root:last-child {
-  border-right: none;
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(20%);
+}
+
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 500ms, transform 500ms;
 }
 
 @media (max-width: 665px) {
-  .MuiTableCell-root {
-    width: 49%;
-  }
-
   th.hiding-fields,
   td.hiding-fields {
     display: none;
@@ -25,6 +42,8 @@
 
   .players-list {
     min-height: 505px;
+    margin-bottom: 70px;
+    min-width: 0;
   }
 }
 

@@ -6,10 +6,9 @@ import { Button } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import "./PlayerItem.css";
-import { useRouteMatch } from "react-router";
-import { Link } from "react-router-dom";
-import { useMediaQuery, useToggle } from "./hooks";
+import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
+import moment from "moment";
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -40,79 +39,33 @@ function PlayerItem({
   edited,
 }) {
   const [width] = useMediaQuery();
-  const match = useRouteMatch();
+  const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
-  function getStringMonth(month) {
-    switch (month) {
-      case 0:
-        month = "January";
-        break;
-      case 1:
-        month = "February";
-        break;
-      case 2:
-        month = "March";
-        break;
-      case 3:
-        month = "April";
-        break;
-      case 4:
-        month = "May";
-        break;
-      case 5:
-        month = "June";
-        break;
-      case 6:
-        month = "July";
-        break;
-      case 7:
-        month = "August";
-        break;
-      case 8:
-        month = "September";
-        break;
-      case 9:
-        month = "October";
-        break;
-      case 10:
-        month = "November";
-        break;
-      case 11:
-        month = "December";
-        break;
-      default:
-        break;
-    }
-    return month;
-  }
   return (
     <>
-      <StyledTableRow className={"single-player-item"}>
+      <StyledTableRow
+        className={"single-player-item"}
+        onClick={(e) => onPlayerClick(id)}
+      >
         <StyledTableCell
           scope="row"
           className={"image-name-container"}
           align="center"
         >
+          <div
+            className={"thumbnail"}
+            style={{ backgroundImage: "url(" + photo.preview }}
+          />
+          {`${name} ${surname}`}
           <button
             className={itemsShown ? "transformed" : ""}
             onClick={toggleItems}
           >
             <ArrowForwardIosIcon />
           </button>
-          <Link to={match.path + "/" + id}>
-            <div
-              className={"thumbnail"}
-              style={{ backgroundImage: "url(" + photo.preview }}
-            />
-          </Link>
-          {`${name} ${surname}`}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {birthDate.getDate() +
-            " " +
-            getStringMonth(birthDate.getMonth()) +
-            " " +
-            birthDate.getFullYear()}
+          {moment().diff(birthDate, "years")}
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
           {gamesPlayed}
@@ -124,16 +77,14 @@ function PlayerItem({
           <Button
             size={"small"}
             className={"delete-button"}
-            onClick={() => deletePlayer(id)}
+            onClick={(event) => deletePlayer(event, id)}
           >
             <DeleteIcon />
           </Button>
         </StyledTableCell>
-        <StyledTableCell align="center" className={"hiding-fields"}>{`${edited
-          .toDateString()
-          .slice(
-            4
-          )} ${edited.getHours()}:${edited.getMinutes()}`}</StyledTableCell>
+        <StyledTableCell align="center" className={"hiding-fields"}>
+          {edited !== null ? edited.fromNow() : "Not edited"}
+        </StyledTableCell>
       </StyledTableRow>
       <CSSTransition
         in={itemsShown && width <= 665}
@@ -160,13 +111,10 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            Birthdate: {birthDate.getFullYear()}
+            {`${moment().diff(birthDate, "years")} years old`}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            Edited:{" "}
-            {`${edited
-              .toDateString()
-              .slice(4)} ${edited.getHours()}:${edited.getMinutes()}`}
+            {edited !== null ? "Edited " + edited.fromNow() : "Not edited"}
           </StyledTableCell>
         </StyledTableRow>
       </CSSTransition>

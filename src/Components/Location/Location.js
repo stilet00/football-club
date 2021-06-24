@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Location.css";
-import SmallLogo from "../SmallLogo/SmallLogo";
 import Loader from "../Loader/Loader";
 
 function Location(props) {
@@ -20,7 +19,6 @@ function Location(props) {
         }
       ></iframe>
       {loader}
-      <SmallLogo />
     </div>
   );
 }
