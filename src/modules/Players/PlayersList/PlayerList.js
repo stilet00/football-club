@@ -43,7 +43,9 @@ function PlayerList({ players, deletePlayer }) {
         <Table className={classes.table} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Players</StyledTableCell>
+              <StyledTableCell className={"first-column"}>
+                Players
+              </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
                 Age
               </StyledTableCell>
@@ -74,11 +76,7 @@ function PlayerList({ players, deletePlayer }) {
                     }}
                     classNames={"fade"}
                   >
-                    <PlayerItem
-                      key={player.id}
-                      {...player}
-                      deletePlayer={deletePlayer}
-                    />
+                    <PlayerItem {...player} deletePlayer={deletePlayer} />
                   </CSSTransition>
                 </SwitchTransition>
               ))}

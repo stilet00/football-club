@@ -9,6 +9,10 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
 }
 
+.first-column {
+  min-width: 224px;
+}
+
 .fade-enter {
   opacity: 0;
   transform: translateY(-20%);
