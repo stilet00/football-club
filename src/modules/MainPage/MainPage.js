@@ -15,7 +15,7 @@ function MainPage() {
     <div
       className={"main-page"}
       style={{
-        backgroundImage: "url(" + background + ")",
+        background: "url(" + background + ")",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
