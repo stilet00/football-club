@@ -10,8 +10,14 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { useMenuBar } from "./hooks";
 import logo from "../../images/logo.png";
+import { useTranslation } from "react-i18next";
 function MenuBar() {
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   const { toggleMenu, menuShown, handleClickAway, path } = useMenuBar();
+
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <div className={"menu"}>
@@ -27,6 +33,20 @@ function MenuBar() {
           >
             <ul className={"fall-down-menu"}>
               <li>
+                <Button
+                  onClick={() => changeLanguage("ru")}
+                  variant={"outlined"}
+                  className={"nav-button language-button"}
+                  disabled={i18n.language === "ru"}
+                ></Button>
+                <Button
+                  onClick={() => changeLanguage("en")}
+                  variant={"outlined"}
+                  className={"nav-button language-button"}
+                  disabled={i18n.language === "en"}
+                ></Button>
+              </li>
+              <li>
                 <Link to={path + "players"}>
                   <Button
                     onClick={toggleMenu}
@@ -34,7 +54,7 @@ function MenuBar() {
                     className={"nav-button"}
                   >
                     <SupervisorAccountIcon />
-                    Show All players
+                    {t("menuButtons.show")}
                   </Button>
                 </Link>
               </li>
@@ -46,7 +66,7 @@ function MenuBar() {
                     className={"nav-button"}
                   >
                     <AddBoxIcon />
-                    Add one more player
+                    {t("menuButtons.add")}
                   </Button>
                 </Link>
               </li>
@@ -58,14 +78,14 @@ function MenuBar() {
                     className={"nav-button"}
                   >
                     <LocationOnIcon />
-                    Home stadium location
+                    {t("menuButtons.location")}
                   </Button>
                 </Link>
               </li>
             </ul>
           </CSSTransition>
         </div>
-        <h2>Liverpool players</h2>
+        <h2>{t("title")}</h2>
         <div className={"logo-container"}>
           <img src={logo} className={"header-logo"} alt="logo" />
         </div>

@@ -18,6 +18,7 @@ import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
+import { useTranslation } from "react-i18next";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -34,6 +35,7 @@ const useStyles = makeStyles({
   },
 });
 function PlayerList({ players, deletePlayer }) {
+  const { t } = useTranslation();
   const classes = useStyles();
   const { path } = useRouteMatch();
   const { currentPage, goForward, goBack } = usePagination();
@@ -44,20 +46,22 @@ function PlayerList({ players, deletePlayer }) {
           <TableHead>
             <TableRow>
               <StyledTableCell className={"first-column"}>
-                Players
+                {t("table.players")}
               </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Age
+                {t("table.age")}
               </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Games played
+                {t("table.gamesPlayed")}
               </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Price
+                {t("table.price")}
               </StyledTableCell>
-              <StyledTableCell align="center">Action</StyledTableCell>
+              <StyledTableCell align="center">
+                {t("table.action")}
+              </StyledTableCell>
               <StyledTableCell align="center" className={"hiding-fields"}>
-                Edited
+                {t("table.edited")}
               </StyledTableCell>
             </TableRow>
           </TableHead>
