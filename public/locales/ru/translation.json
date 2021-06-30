@@ -12,7 +12,8 @@
     "price": "Цена",
     "action": "Действие",
     "edited": "Редактировано",
-    "editedFalse": "Не редак."
+    "editedFalse": "Не редак.",
+    "years": "год"
   },
   "form": {
     "name": "Имя",

@@ -42,7 +42,12 @@ function PlayerItem({
   const [width] = useMediaQuery();
   const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  let russianAge = String(moment().diff(birthDate, "years"))[1] === "1" ?
+      "год" :
+      String(moment().diff(birthDate, "years"))[1] === "5" || String(moment().diff(birthDate, "years"))[1] === "6" || String(moment().diff(birthDate, "years"))[1] === "7" || String(moment().diff(birthDate, "years"))[1] === "8" || String(moment().diff(birthDate, "years"))[1] === "9" || String(moment().diff(birthDate, "years"))[1] === "0" ?
+          "лет" : "года"
+
   return (
     <>
       <StyledTableRow
@@ -111,7 +116,8 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {`${moment().diff(birthDate, "years")} years old`}
+            {`${moment().diff(birthDate, "years")} ${i18n.language === "en" ? t("table.years") : russianAge}`}
+
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null

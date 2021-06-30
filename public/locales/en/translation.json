@@ -12,7 +12,8 @@
     "price": "Price",
     "action": "Action",
     "edited": "Edited",
-    "editedFalse": "Not edited"
+    "editedFalse": "Not edited",
+    "years": "years old"
   },
   "form": {
     "name": "Name",
