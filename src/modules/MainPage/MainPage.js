@@ -8,6 +8,7 @@ import { useMainPage } from "./hooks";
 import { Redirect } from "react-router";
 import Location from "../../Components/Location/Location";
 import background from "../../images/background.jpg";
+import Statistics from "../Statistics/Statistics";
 
 function MainPage() {
   const { players, onFormSubmit, deletePlayer } = useMainPage();
@@ -40,6 +41,7 @@ function MainPage() {
             )}
           />
           <Route path={"/location"} exact component={Location} />
+          <Route path={"/statistics"} exact component={Statistics} />
           <Route path={"*"}>
             <Redirect to={"/"} />
           </Route>

@@ -68,6 +68,7 @@
   padding: 10px;
   background: #00b2a9;
   transition: 1s;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .menu .fall-down-menu li {
   list-style-type: none;

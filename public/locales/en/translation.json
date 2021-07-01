@@ -3,7 +3,8 @@
   "menuButtons": {
     "show": "Show all players",
     "add": "Add one more player",
-    "location": "Home stadium location"
+    "location": "Home stadium location",
+    "statistics": "Players statistics"
   },
   "table": {
     "players": "Players",
@@ -22,5 +23,9 @@
     "clear": "Clear",
     "save": "Save"
   },
-  "location": "Liverpool's base stadium location"
+  "location": "Liverpool's base stadium location",
+  "statistics": {
+    "timeOnField": "Time on the field",
+    "goals": "Goals shot"
+  }
 }
