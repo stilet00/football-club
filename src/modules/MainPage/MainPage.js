@@ -41,7 +41,11 @@ function MainPage() {
             )}
           />
           <Route path={"/location"} exact component={Location} />
-          <Route path={"/statistics"} exact component={Statistics} />
+          <Route
+            path={"/statistics"}
+            exact
+            component={() => <Statistics players={players} />}
+          />
           <Route path={"*"}>
             <Redirect to={"/"} />
           </Route>

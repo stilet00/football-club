@@ -10,5 +10,7 @@ export const DEFAULT_PLAYER = {
   birthDate: moment(),
   gamesPlayed: "",
   price: "",
+  timeOnField: "",
+  goals: "",
 };
 export const PAGINATION_STEP = 4;

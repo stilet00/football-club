@@ -14,7 +14,9 @@
     "action": "Действие",
     "edited": "Редактировано",
     "editedFalse": "Не редак.",
-    "years": "год"
+    "years": "год",
+    "timeOnField": "Время на поле, часы",
+    "goals": "Голы"
   },
   "form": {
     "name": "Имя",

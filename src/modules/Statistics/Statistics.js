@@ -7,7 +7,6 @@ import Select from "@material-ui/core/Select";
 import { useTranslation } from "react-i18next";
 import { Bar } from "react-chartjs-2";
 import "./Statistics.css";
-import { PLAYERS } from "../../shared/mocks/mocks";
 import Media from "react-media";
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -18,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-function Statistics(props) {
+function Statistics({ players }) {
   const { t } = useTranslation();
   const [category, setCategory] = useState(1);
   const [data, setData] = useState({
     labels: ["2021"],
-    datasets: PLAYERS.map(
+    datasets: players.map(
       (item) =>
         (item = {
           backgroundColor:
@@ -77,7 +76,7 @@ function Statistics(props) {
   useEffect(() => {
     setData({
       ...data,
-      datasets: PLAYERS.map(
+      datasets: players.map(
         (item) =>
           (item = {
             backgroundColor:

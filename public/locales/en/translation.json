@@ -14,7 +14,9 @@
     "action": "Action",
     "edited": "Edited",
     "editedFalse": "Not edited",
-    "years": "years old"
+    "years": "years old",
+    "timeOnField": "Time on field, hrs",
+    "goals": "Goals"
   },
   "form": {
     "name": "Name",

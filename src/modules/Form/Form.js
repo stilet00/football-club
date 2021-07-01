@@ -58,7 +58,6 @@ function Form({ players, onFormSubmit }) {
             required
             type="text"
             error={errors.name}
-            id="outlined-basic"
             label={t("form.name")}
             variant="outlined"
             onChange={onInputChange}
@@ -69,7 +68,6 @@ function Form({ players, onFormSubmit }) {
             required
             type="text"
             error={errors.surname}
-            id="outlined-basic"
             label={t("form.surname")}
             variant="outlined"
             onChange={onInputChange}
@@ -80,7 +78,6 @@ function Form({ players, onFormSubmit }) {
             required
             type="number"
             error={errors.gamesPlayed}
-            id="outlined-basic"
             label={t("table.gamesPlayed")}
             variant="outlined"
             onChange={onInputChange}
@@ -91,13 +88,34 @@ function Form({ players, onFormSubmit }) {
             required
             type="number"
             error={errors.price}
-            id="outlined-basic"
             label={t("table.price")}
             variant="outlined"
             onChange={onInputChange}
             name={"price"}
             value={player.price}
             className={"price-input"}
+          />
+          <TextField
+            required
+            type="number"
+            error={errors.timeOnField}
+            label={t("table.timeOnField")}
+            variant="outlined"
+            onChange={onInputChange}
+            name={"timeOnField"}
+            value={player.timeOnField}
+            className={"hours-input"}
+          />
+          <TextField
+            required
+            type="number"
+            error={errors.goals}
+            label={t("table.goals")}
+            variant="outlined"
+            onChange={onInputChange}
+            name={"goals"}
+            value={player.goals}
+            className={"hours-input goals-input"}
           />
           <KeyboardDatePicker
             inputVariant={"outlined"}
