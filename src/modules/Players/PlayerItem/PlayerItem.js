@@ -43,10 +43,18 @@ function PlayerItem({
   const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
   const { t, i18n } = useTranslation();
-  let russianAge = String(moment().diff(birthDate, "years"))[1] === "1" ?
-      "год" :
-      String(moment().diff(birthDate, "years"))[1] === "5" || String(moment().diff(birthDate, "years"))[1] === "6" || String(moment().diff(birthDate, "years"))[1] === "7" || String(moment().diff(birthDate, "years"))[1] === "8" || String(moment().diff(birthDate, "years"))[1] === "9" || String(moment().diff(birthDate, "years"))[1] === "0" ?
-          "лет" : "года"
+  const secondAgeNumber = String(moment().diff(birthDate, "years"))[1];
+  const russianAge =
+    secondAgeNumber === "1"
+      ? "год"
+      : secondAgeNumber === "5" ||
+        secondAgeNumber === "6" ||
+        secondAgeNumber === "7" ||
+        secondAgeNumber === "8" ||
+        secondAgeNumber === "9" ||
+        secondAgeNumber === "0"
+      ? "лет"
+      : "года";
 
   return (
     <>
@@ -116,8 +124,9 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {`${moment().diff(birthDate, "years")} ${i18n.language === "en" ? t("table.years") : russianAge}`}
-
+            {`${moment().diff(birthDate, "years")} ${
+              i18n.language === "en" ? t("table.years") : russianAge
+            }`}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null
