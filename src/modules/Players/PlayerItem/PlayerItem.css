@@ -4,7 +4,6 @@
   transition: 0.5s;
 }
 .single-player-item:hover {
-  background: #00b2a9 !important;
   background: linear-gradient(
     90deg,
     #00b2a9 26%,

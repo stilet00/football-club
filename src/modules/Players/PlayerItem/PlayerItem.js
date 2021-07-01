@@ -8,6 +8,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import "./PlayerItem.css";
 import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
+import { useTranslation } from "react-i18next";
 import moment from "moment";
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -41,6 +42,20 @@ function PlayerItem({
   const [width] = useMediaQuery();
   const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
+  const { t, i18n } = useTranslation();
+  const secondAgeNumber = String(moment().diff(birthDate, "years"))[1];
+  const russianAge =
+    secondAgeNumber === "1"
+      ? "год"
+      : secondAgeNumber === "5" ||
+        secondAgeNumber === "6" ||
+        secondAgeNumber === "7" ||
+        secondAgeNumber === "8" ||
+        secondAgeNumber === "9" ||
+        secondAgeNumber === "0"
+      ? "лет"
+      : "года";
+
   return (
     <>
       <StyledTableRow
@@ -83,7 +98,7 @@ function PlayerItem({
           </Button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {edited !== null ? edited.fromNow() : "Not edited"}
+          {edited !== null ? edited.fromNow() : t("table.editedFalse")}
         </StyledTableCell>
       </StyledTableRow>
       <CSSTransition
@@ -94,12 +109,10 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {gamesPlayed +
-              " " +
-              (gamesPlayed > 1 ? "games played" : "game played")}
+            {t("table.gamesPlayed") + ": " + gamesPlayed}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            Price: {price} $
+            {t("table.players") + " " + price} $
           </StyledTableCell>
         </StyledTableRow>
       </CSSTransition>
@@ -111,10 +124,14 @@ function PlayerItem({
       >
         <StyledTableRow>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {`${moment().diff(birthDate, "years")} years old`}
+            {`${moment().diff(birthDate, "years")} ${
+              i18n.language === "en" ? t("table.years") : russianAge
+            }`}
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
-            {edited !== null ? "Edited " + edited.fromNow() : "Not edited"}
+            {edited !== null
+              ? "Edited " + edited.fromNow()
+              : t("table.editedFalse")}
           </StyledTableCell>
         </StyledTableRow>
       </CSSTransition>

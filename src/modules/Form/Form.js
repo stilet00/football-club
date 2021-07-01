@@ -8,6 +8,7 @@ import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { useTranslation } from "react-i18next";
 function Form({ players, onFormSubmit }) {
   const {
     player,
@@ -21,6 +22,7 @@ function Form({ players, onFormSubmit }) {
     fieldsFilled,
     errors,
   } = useForm(players);
+  const { t } = useTranslation();
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <form
@@ -57,7 +59,7 @@ function Form({ players, onFormSubmit }) {
             type="text"
             error={errors.name}
             id="outlined-basic"
-            label="Name"
+            label={t("form.name")}
             variant="outlined"
             onChange={onInputChange}
             name={"name"}
@@ -68,7 +70,7 @@ function Form({ players, onFormSubmit }) {
             type="text"
             error={errors.surname}
             id="outlined-basic"
-            label="Surname"
+            label={t("form.surname")}
             variant="outlined"
             onChange={onInputChange}
             name={"surname"}
@@ -79,7 +81,7 @@ function Form({ players, onFormSubmit }) {
             type="number"
             error={errors.gamesPlayed}
             id="outlined-basic"
-            label="Games played"
+            label={t("table.gamesPlayed")}
             variant="outlined"
             onChange={onInputChange}
             name={"gamesPlayed"}
@@ -90,7 +92,7 @@ function Form({ players, onFormSubmit }) {
             type="number"
             error={errors.price}
             id="outlined-basic"
-            label="Price"
+            label={t("table.price")}
             variant="outlined"
             onChange={onInputChange}
             name={"price"}
@@ -102,7 +104,7 @@ function Form({ players, onFormSubmit }) {
             disableFuture={true}
             margin="normal"
             id="date-picker-dialog"
-            label="Player's birth date"
+            label={t("form.birthDate")}
             format="YYYY-MM-DD"
             value={selectedDate}
             className={"datepicker"}
@@ -117,7 +119,7 @@ function Form({ players, onFormSubmit }) {
               variant={"outlined"}
               className={"form-control-button"}
             >
-              Clear
+              {t("form.clear")}
             </Button>
             <Button
               type={"submit"}
@@ -131,7 +133,7 @@ function Form({ players, onFormSubmit }) {
                 errors.price
               }
             >
-              Save
+              {t("form.save")}
             </Button>
           </div>
         </FormGroup>
