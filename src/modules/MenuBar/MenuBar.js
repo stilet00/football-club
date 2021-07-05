@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import BarChartIcon from "@material-ui/icons/BarChart";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
 import { useMenuBar } from "./hooks";
 import logo from "../../images/logo.png";
@@ -79,6 +80,18 @@ function MenuBar() {
                   >
                     <LocationOnIcon />
                     {t("menuButtons.location")}
+                  </Button>
+                </Link>
+              </li>
+              <li>
+                <Link to={path + "statistics"}>
+                  <Button
+                    onClick={toggleMenu}
+                    variant={"outlined"}
+                    className={"nav-button"}
+                  >
+                    <BarChartIcon />
+                    {t("menuButtons.statistics")}
                   </Button>
                 </Link>
               </li>

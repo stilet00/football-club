@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-width: 350px;
-  min-height: 650px;
+  min-height: 680px;
   box-sizing: border-box;
   padding: 5px;
   margin: 0 auto;
@@ -55,6 +55,26 @@
   position: absolute;
   right: 35px;
   top: 35%;
+}
+
+.hours-input {
+  position: relative;
+}
+.hours-input::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 35px;
+  top: 35%;
+  background-image: url("https://w7.pngwing.com/pngs/628/710/png-transparent-computer-icons-time-attendance-clocks-symbol-info.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.goals-input::after {
+  background-image: url("https://img2.freepng.ru/20171128/18c/soccer-ball-transparent-png-clipart-5a1cee20e96727.565442611511845408956.jpg");
 }
 
 .MuiPickersToolbar-toolbar {
