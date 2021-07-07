@@ -19,51 +19,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 function Statistics({ players }) {
   const { t } = useTranslation();
-  const [category, setCategory] = useState(1);
+  const [category, setCategory] = useState("gamesPlayed");
   const [data, setData] = useState({
-    labels: ["2021"],
-    datasets: players.map(
-      (item) =>
-        (item = {
-          backgroundColor:
-            "#" + Math.floor(Math.random() * 16777215).toString(16),
-          borderColor: item.backgroundColor,
-          borderWidth: 1,
-          data: [
-            category === 1
-              ? item.gamesPlayed
-              : category === 2
-              ? item.timeOnField
-              : category === 3
-              ? item.goals
-              : item.price,
-          ],
-          label: `${item.name} ${item.surname}`,
-          borderRadius: 5,
-        })
-    ),
+    labels: [...players.map((item) => item.name)],
   });
   const options = {
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
+      y: {
+        ticks: {
+          callback: function (value, index, values) {
+            const additionalText =
+              category === "price"
+                ? ", $."
+                : category === "timeOnField"
+                ? ", hrs."
+                : ", points.";
+            return value + additionalText;
           },
         },
-      ],
+      },
     },
     plugins: {
+      legend: {
+        display: false,
+      },
       title: {
         display: true,
-        text:
-          category === 1
-            ? t("table.gamesPlayed")
-            : category === 2
-            ? t("statistics.timeOnField") + ", hrs."
-            : category === 3
-            ? t("statistics.goals")
-            : t("table.price"),
+        text: t("statistics." + category),
       },
     },
     responsive: true,
@@ -76,26 +58,30 @@ function Statistics({ players }) {
   useEffect(() => {
     setData({
       ...data,
-      datasets: players.map(
-        (item) =>
-          (item = {
-            backgroundColor:
-              "#" + Math.floor(Math.random() * 16777215).toString(16),
-            borderColor: item.backgroundColor,
-            borderWidth: 1,
-            data: [
-              category === 1
-                ? item.gamesPlayed
-                : category === 2
-                ? item.timeOnField
-                : category === 3
-                ? item.goals
-                : item.price,
-            ],
-            label: `${item.name} ${item.surname}`,
-            borderRadius: 5,
-          })
-      ),
+      datasets: [
+        {
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+          ],
+          borderWidth: 1,
+          data: [...players.map((item) => item[category])],
+          label: t("statistics." + category),
+          borderRadius: 5,
+        },
+      ],
     });
   }, [category]);
 
@@ -109,12 +95,14 @@ function Statistics({ players }) {
           onChange={handleChange}
           label="Category"
         >
-          <MenuItem value={1} selected>
+          <MenuItem value={"gamesPlayed"} selected>
             {t("table.gamesPlayed")}
           </MenuItem>
-          <MenuItem value={2}>{t("statistics.timeOnField")}</MenuItem>
-          <MenuItem value={3}>{t("statistics.goals")}</MenuItem>
-          <MenuItem value={4}>{t("table.price")}</MenuItem>
+          <MenuItem value={"timeOnField"}>
+            {t("statistics.timeOnField")}
+          </MenuItem>
+          <MenuItem value={"goals"}>{t("statistics.goals")}</MenuItem>
+          <MenuItem value={"price"}>{t("statistics.price")}</MenuItem>
         </Select>
       </FormControl>
       <div className="chart-container">

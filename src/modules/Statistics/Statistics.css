@@ -10,8 +10,11 @@
 }
 
 .chart-container {
+  display: flex;
+  align-items: center;
   background: #fff;
   width: 100%;
+  min-height: 70vh;
   border: 1px solid white;
   border-radius: 5px;
 }
