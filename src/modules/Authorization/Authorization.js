@@ -2,7 +2,6 @@ import React from "react";
 import firebase from "firebase/app";
 import {
   FirebaseAuthConsumer,
-  IfFirebaseAuthed,
   IfFirebaseAuthedAnd,
 } from "@react-firebase/auth";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";

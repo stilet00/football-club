@@ -6,14 +6,12 @@
   background: rgba(255, 255, 255, 0.7);
   box-sizing: border-box;
   padding: 10px;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 .chart-container {
   background: #fff;
   width: 100%;
   border: 1px solid white;
-  border-radius: 5px;
-}
+  border-radius: 5px; }
 
 /*# sourceMappingURL=Statistics.css.map */

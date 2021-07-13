@@ -12,13 +12,10 @@
   box-sizing: border-box;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   background: #00b2a9;
-  text-align: center;
-}
-.auth-container .auth-button {
-  width: 200px !important;
-}
-.auth-container .auth-button:hover {
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important;
-}
+  text-align: center; }
+  .auth-container .auth-button {
+    width: 200px !important; }
+    .auth-container .auth-button:hover {
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5) !important; }
 
 /*# sourceMappingURL=Authorization.css.map */
