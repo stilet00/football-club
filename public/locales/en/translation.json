@@ -27,9 +27,15 @@
   },
   "location": "Liverpool's base stadium location",
   "statistics": {
-    "gamesPlayed": "Games played",
+   "gamesPlayed": "Games played",
     "timeOnField": "Time on the field, hrs.",
     "goals": "Goals shot",
     "price": "Price, $"
+  },
+  "authorization": {
+    "greetingsWord": "Hello",
+    "googleButton": "Sing in with google",
+    "singOutButton": "Sing out",
+    "googleSuccess": "You are successfully authorized with google.com!"
   }
 }

@@ -31,5 +31,11 @@
     "timeOnField": "Время на поле, часы",
     "goals": "Голов забито",
     "price": "Цена, $"
+  },
+  "authorization": {
+    "greetingsWord": "Здравствуйте",
+    "googleButton": "Логин через google",
+    "singOutButton": "Разлогиниться",
+    "googleSuccess": "Вы успешно авторизировались через google.com!"
   }
 }

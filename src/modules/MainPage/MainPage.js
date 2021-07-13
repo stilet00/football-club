@@ -9,6 +9,7 @@ import { Redirect } from "react-router";
 import Location from "../../Components/Location/Location";
 import background from "../../images/background.jpg";
 import Statistics from "../Statistics/Statistics";
+import Authorization from "../Authorization/Authorization";
 
 function MainPage() {
   const { players, onFormSubmit, deletePlayer } = useMainPage();
@@ -46,6 +47,8 @@ function MainPage() {
             exact
             component={() => <Statistics players={players} />}
           />
+
+          <Route path={"/"} component={Authorization} />
           <Route path={"*"}>
             <Redirect to={"/"} />
           </Route>
