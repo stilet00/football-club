@@ -15,7 +15,7 @@
     "edited": "Редактировано",
     "editedFalse": "Не редак.",
     "years": "год",
-    "timeOnField": "Время на поле, часы",
+    "timeOnField": "Время на поле",
     "goals": "Голы"
   },
   "form": {
@@ -27,7 +27,9 @@
   },
   "location": "Локация стадиона в г. Ливерпуль",
   "statistics": {
-    "timeOnField": "Время на поле",
-    "goals": "Голов забито"
+    "gamesPlayed": "Сыграно",
+    "timeOnField": "Время на поле, часы",
+    "goals": "Голов забито",
+    "price": "Цена, $"
   }
 }
