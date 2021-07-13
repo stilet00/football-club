@@ -29,5 +29,11 @@
   "statistics": {
     "timeOnField": "Время на поле",
     "goals": "Голов забито"
+  },
+  "authorization": {
+    "greetingsWord": "Здравствуйте",
+    "googleButton": "Логин через google",
+    "singOutButton": "Разлогиниться",
+    "googleSuccess": "Вы успешно авторизировались через google.com!"
   }
 }

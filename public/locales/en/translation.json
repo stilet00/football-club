@@ -29,5 +29,11 @@
   "statistics": {
     "timeOnField": "Time on the field",
     "goals": "Goals shot"
+  },
+  "authorization": {
+    "greetingsWord": "Hello",
+    "googleButton": "Sing in with google",
+    "singOutButton": "Sing out",
+    "googleSuccess": "You are successfully authorized with google.com!"
   }
 }

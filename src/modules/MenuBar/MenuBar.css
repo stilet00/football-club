@@ -24,6 +24,7 @@
   letter-spacing: 1px;
 }
 .menu .nav-button {
+  position: relative;
   width: 200px;
   margin-bottom: 10px !important;
 }
