@@ -30,11 +30,11 @@ function Statistics({ players }) {
           callback: function (value, index, values) {
             const additionalText =
               category === "price"
-                ? ", $."
+                ? "$."
                 : category === "timeOnField"
-                ? ", hrs."
-                : ", points.";
-            return value + additionalText;
+                ? "hrs."
+                : "points.";
+            return `${value} + ${additionalText}`;
           },
         },
       },
