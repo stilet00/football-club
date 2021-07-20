@@ -10,6 +10,7 @@ import "./Authorization.css";
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router";
+import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
 function Authorization(props) {
   const history = useHistory();
   const { t } = useTranslation();
@@ -18,9 +19,7 @@ function Authorization(props) {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function emailAuth() {
-    var email = "safroninanton@gmail.com";
-    var password = "7210stiletsss";
+  function emailAuth(email, password) {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -80,14 +79,15 @@ function Authorization(props) {
                   <VpnKeyIcon />
                   {t("authorization.googleButton")}
                 </Button>
-                <Button
-                  className={"auth-button"}
-                  variant={"outlined"}
-                  onClick={emailAuth}
-                >
-                  <VpnKeyIcon />
-                  {t("authorization.emailButton")}
-                </Button>
+                {/*<Button*/}
+                {/*  className={"auth-button"}*/}
+                {/*  variant={"outlined"}*/}
+                {/*  onClick={emailAuth}*/}
+                {/*>*/}
+                {/*  <VpnKeyIcon />*/}
+                {/*  {t("authorization.emailButton")}*/}
+                {/*</Button>*/}
+                <AuthorizationForm onFormSubmit={emailAuth}/>
                 <Button
                   className={"auth-button"}
                   variant={"outlined"}
