@@ -35,6 +35,7 @@
   "authorization": {
     "greetingsWord": "Hello",
     "googleButton": "Sing in with google",
+    "emailButton": "Sing in with email",
     "singOutButton": "Sing out",
     "googleSuccess": "You are successfully authorized with google.com!"
   }

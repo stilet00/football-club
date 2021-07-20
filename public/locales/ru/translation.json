@@ -35,6 +35,7 @@
   "authorization": {
     "greetingsWord": "Здравствуйте",
     "googleButton": "Логин через google",
+    "emailButton": "Логин через email",
     "singOutButton": "Разлогиниться",
     "googleSuccess": "Вы успешно авторизировались через google.com!"
   }
