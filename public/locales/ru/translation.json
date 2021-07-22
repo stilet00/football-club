@@ -36,7 +36,12 @@
     "greetingsWord": "Здравствуйте",
     "googleButton": "Логин через google",
     "emailButton": "Логин через email",
+    "registerButton": "Регистрация через email",
     "singOutButton": "Разлогиниться",
-    "googleSuccess": "Вы успешно авторизировались через google.com!"
+    "googleSuccess": "Вы успешно авторизировались через google.com!",
+    "formEmail": "Имейл",
+    "formPassword": "Пароль",
+    "formRepeat": "Повторите Пароль",
+    "backButton": "Назад"
   }
 }

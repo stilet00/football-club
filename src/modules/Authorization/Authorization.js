@@ -3,7 +3,7 @@ import firebase from "firebase/app";
 import {
   FirebaseAuthConsumer,
   IfFirebaseAuthedAnd,
-  IfFirebaseUnAuthed
+  IfFirebaseUnAuthed,
 } from "@react-firebase/auth";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import "./Authorization.css";
@@ -11,6 +11,7 @@ import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import { useHistory } from "react-router";
 import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
+import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 function Authorization(props) {
   const history = useHistory();
   const { t } = useTranslation();
@@ -19,39 +20,31 @@ function Authorization(props) {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function emailAuth(email, password) {
+  function emailAuth({ email, password }) {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         var user = userCredential.user;
-        console.log(user);
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorMessage)
+        console.log(errorMessage);
         setErrorText(error.message);
       });
   }
-  function emailRegister() {
-    var email = "test@example.com";
-    var password = "hunter2";
-    // [START auth_signup_password]
+  function emailRegister({ email, password, repeatPassword }) {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Signed in
         var user = userCredential.user;
-        // ...
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        // ..
       });
-    // [END auth_signup_password]
   }
   function sendEmailVerification() {
     // [START auth_send_email_verification]
@@ -79,53 +72,44 @@ function Authorization(props) {
                   <VpnKeyIcon />
                   {t("authorization.googleButton")}
                 </Button>
-                {/*<Button*/}
-                {/*  className={"auth-button"}*/}
-                {/*  variant={"outlined"}*/}
-                {/*  onClick={emailAuth}*/}
-                {/*>*/}
-                {/*  <VpnKeyIcon />*/}
-                {/*  {t("authorization.emailButton")}*/}
-                {/*</Button>*/}
-                <AuthorizationForm onFormSubmit={emailAuth}/>
-                <Button
-                  className={"auth-button"}
-                  variant={"outlined"}
-                  onClick={emailRegister}
-                >
-                  <VpnKeyIcon />
-                  {t("authorization.emailButton")}
-                </Button>
+                <AuthorizationForm onFormSubmit={emailAuth} />
+                <AuthorizationForm
+                  onFormSubmit={emailRegister}
+                  registration={true}
+                />
               </>
             ) : (
-                <>
-              <IfFirebaseAuthedAnd filter={({ user }) => user !== "anonymous"}>
-                {({ user }) => {
-                  return (
-                    <div>{`${t("authorization.greetingsWord")} ${
-                      user.displayName
-                    }! ${t("authorization.googleSuccess")}`}</div>
-                  );
-                }}
-              </IfFirebaseAuthedAnd>
-                  <IfFirebaseUnAuthed>
-                    {() => {
-                      return (
-                          <>
-                          <div>{errorText}</div>
-                          <Button
-                              className={"auth-button"}
-                              variant={"outlined"}
-                              onClick={() => {
-                                firebase.auth().signOut();
-                                window.location.reload();
-                              }}
-                          >Back</Button>
-                          </>
-
-                      );
-                    }}
-                  </IfFirebaseUnAuthed>
+              <>
+                <IfFirebaseAuthedAnd
+                  filter={({ user }) => user !== "anonymous"}
+                >
+                  {({ user }) => {
+                    return (
+                      <div>{`${t("authorization.greetingsWord")} ${
+                        user.email
+                      }! ${t("authorization.googleSuccess")}`}</div>
+                    );
+                  }}
+                </IfFirebaseAuthedAnd>
+                <IfFirebaseUnAuthed>
+                  {() => {
+                    return (
+                      <>
+                        <div>{errorText}</div>
+                        <Button
+                          className={"auth-button"}
+                          variant={"outlined"}
+                          onClick={() => {
+                            firebase.auth().signOut();
+                            window.location.reload();
+                          }}
+                        >
+                          {t("authorization.backButton")}
+                        </Button>
+                      </>
+                    );
+                  }}
+                </IfFirebaseUnAuthed>
               </>
             )}
           </div>
