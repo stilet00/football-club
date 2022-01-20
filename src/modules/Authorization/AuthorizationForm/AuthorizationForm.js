@@ -7,11 +7,6 @@ import EmailIcon from "@material-ui/icons/Email";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import "./AuthorizationForm.css";
 import CloseIcon from "@material-ui/icons/Close";
-import { useHistory } from "react-router";
-
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
 
 function getModalStyle() {
   const top = 45;
@@ -38,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AuthorizationForm({ onFormSubmit, registration }) {
   const classes = useStyles();
-  const history = useHistory();
   const { t } = useTranslation();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -93,8 +87,8 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
     </Button>
   );
   const submitButtonCheck = registration
-    ? user.password !== user.repeatPassword || user.email == ""
-    : user.email == "" || user.password == "";
+    ? user.password !== user.repeatPassword || user.email === ""
+    : user.email === "" || user.password === "";
 
   return (
     <div>

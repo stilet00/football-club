@@ -9,11 +9,8 @@ import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import "./Authorization.css";
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router";
 import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
-import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 function Authorization(props) {
-  const history = useHistory();
   const { t } = useTranslation();
   const [errorText, setErrorText] = useState(null);
   function googleAuth() {
