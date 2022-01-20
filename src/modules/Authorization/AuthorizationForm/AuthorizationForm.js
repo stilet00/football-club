@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 export default function AuthorizationForm({ onFormSubmit, registration }) {
   const classes = useStyles();
   const { t } = useTranslation();
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
   const [user, setUser] = useState({
@@ -44,7 +43,6 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
   });
   function onInputChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
-    console.log(user);
   }
 
   const handleOpen = () => {
@@ -59,7 +57,6 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
       required
       type="password"
       fullWidth
-      // error={errors.name}
       label={t("authorization.formRepeat")}
       variant="outlined"
       name={"repeatPassword"}
@@ -86,7 +83,7 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
       <EmailIcon /> {t("authorization.emailButton")}
     </Button>
   );
-  const submitButtonCheck = registration
+  const invalidSubmitButton = registration
     ? user.password !== user.repeatPassword || user.email === ""
     : user.email === "" || user.password === "";
 
@@ -115,7 +112,6 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
               required
               type="email"
               fullWidth
-              // error={errors.name}
               label={t("authorization.formEmail")}
               variant="outlined"
               name={"email"}
@@ -126,7 +122,6 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
               required
               type="password"
               fullWidth
-              // error={errors.name}
               label={t("authorization.formPassword")}
               variant="outlined"
               name={"password"}
@@ -138,7 +133,7 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
               variant={"outlined"}
               type={"submit"}
               className={"auth-button"}
-              disabled={submitButtonCheck}
+              disabled={invalidSubmitButton}
             >
               {registration
                 ? t("authorization.registerButton")

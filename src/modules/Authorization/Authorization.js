@@ -17,42 +17,38 @@ function Authorization(props) {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function emailAuth({ email, password }) {
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        var user = userCredential.user;
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorMessage);
-        setErrorText(error.message);
-      });
-  }
-  function emailRegister({ email, password, repeatPassword }) {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        var user = userCredential.user;
-      })
-      .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
-      });
-  }
-  function sendEmailVerification() {
-    // [START auth_send_email_verification]
-    firebase
-      .auth()
-      .currentUser.sendEmailVerification()
-      .then(() => {
-        // Email verification sent!
-        // ...
-      });
-    // [END auth_send_email_verification]
+  function Authentification({email, password, repeatPassword}) {
+    if (repeatPassword.length) {
+      if (password === repeatPassword) {
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+              var user = userCredential.user;
+            })
+            .catch((error) => {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+              console.log(errorCode, errorMessage);
+              setErrorText(errorMessage);
+            });
+      } else {
+        console.log("Passwords do not match");
+      }
+    } else {
+      firebase
+          .auth()
+          .signInWithEmailAndPassword(email, password)
+          .then((userCredential) => {
+            var user = userCredential.user;
+          })
+          .catch((error) => {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorCode, errorMessage);
+            setErrorText(errorMessage);
+          });
+    }
   }
   return (
     <FirebaseAuthConsumer>
@@ -69,9 +65,9 @@ function Authorization(props) {
                   <VpnKeyIcon />
                   {t("authorization.googleButton")}
                 </Button>
-                <AuthorizationForm onFormSubmit={emailAuth} />
+                <AuthorizationForm onFormSubmit={Authentification} />
                 <AuthorizationForm
-                  onFormSubmit={emailRegister}
+                  onFormSubmit={Authentification}
                   registration={true}
                 />
               </>
@@ -80,17 +76,14 @@ function Authorization(props) {
                 <IfFirebaseAuthedAnd
                   filter={({ user }) => user !== "anonymous"}
                 >
-                  {({ user }) => {
-                    return (
+                  {({ user }) =>
                       <div>{`${t("authorization.greetingsWord")} ${
                         user.email
                       }! ${t("authorization.googleSuccess")}`}</div>
-                    );
-                  }}
+                  }
                 </IfFirebaseAuthedAnd>
                 <IfFirebaseUnAuthed>
-                  {() => {
-                    return (
+                  {() =>
                       <>
                         <div>{errorText}</div>
                         <Button
@@ -104,8 +97,7 @@ function Authorization(props) {
                           {t("authorization.backButton")}
                         </Button>
                       </>
-                    );
-                  }}
+                  }
                 </IfFirebaseUnAuthed>
               </>
             )}

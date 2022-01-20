@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,kCAAa;EACX,KAAK,EAAE,KAAK;;AAChB,UAAU;EACR,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,UAAU,EAAE,KAAK;EACjB,6BAAkB;IAChB,MAAM,EAAE,WAAW;EACrB,uBAAY;IACV,KAAK,EAAE,gBAAe;IACtB,MAAM,EAAE,eAAc;IACtB,OAAO,EAAE,eAAc;IACvB,eAAe,EAAE,aAAa;IAC9B,MAAM,EAAE,WAAW",
-"sources": ["AuthorizationForm.sass"],
-"names": [],
-"file": "AuthorizationForm.css"
-}
