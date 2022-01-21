@@ -1,0 +1,8 @@
+.main-page {
+  min-height: 100vh; }
+  .main-page .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+/*# sourceMappingURL=Main.css.map */
