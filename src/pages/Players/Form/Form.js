@@ -9,7 +9,9 @@ import MomentUtils from "@date-io/moment";
 import moment from "moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { useTranslation } from "react-i18next";
-function Form({ players, onFormSubmit }) {
+import { useDataBase } from "../../../shared/hooks/useDataBase";
+function Form() {
+  const { players, onFormSubmit } = useDataBase();
   const {
     player,
     onInputChange,

@@ -19,6 +19,7 @@ import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import { useTranslation } from "react-i18next";
+import { useDataBase } from "../../../shared/hooks/useDataBase";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -34,7 +35,8 @@ const useStyles = makeStyles({
     minWidth: "100%",
   },
 });
-function PlayerList({ players, deletePlayer }) {
+function PlayerList() {
+  const { players, deletePlayer } = useDataBase();
   const { t } = useTranslation();
   const classes = useStyles();
   const { path } = useRouteMatch();

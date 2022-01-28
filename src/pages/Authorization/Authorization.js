@@ -17,28 +17,12 @@ function Authorization(props) {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function Authentification({email, password, repeatPassword}) {
+  function Authentification({ email, password, repeatPassword }) {
     if (repeatPassword.length) {
       if (password === repeatPassword) {
         firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-              var user = userCredential.user;
-            })
-            .catch((error) => {
-              var errorCode = error.code;
-              var errorMessage = error.message;
-              console.log(errorCode, errorMessage);
-              setErrorText(errorMessage);
-            });
-      } else {
-        console.log("Passwords do not match");
-      }
-    } else {
-      firebase
           .auth()
-          .signInWithEmailAndPassword(email, password)
+          .createUserWithEmailAndPassword(email, password)
           .then((userCredential) => {
             var user = userCredential.user;
           })
@@ -48,6 +32,22 @@ function Authorization(props) {
             console.log(errorCode, errorMessage);
             setErrorText(errorMessage);
           });
+      } else {
+        console.log("Passwords do not match");
+      }
+    } else {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          var user = userCredential.user;
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          setErrorText(errorMessage);
+        });
     }
   }
   return (
@@ -76,28 +76,28 @@ function Authorization(props) {
                 <IfFirebaseAuthedAnd
                   filter={({ user }) => user !== "anonymous"}
                 >
-                  {({ user }) =>
-                      <div>{`${t("authorization.greetingsWord")} ${
-                        user.email
-                      }! ${t("authorization.googleSuccess")}`}</div>
-                  }
+                  {({ user }) => (
+                    <div>{`${t("authorization.greetingsWord")} ${
+                      user.email
+                    }! ${t("authorization.googleSuccess")}`}</div>
+                  )}
                 </IfFirebaseAuthedAnd>
                 <IfFirebaseUnAuthed>
-                  {() =>
-                      <>
-                        <div>{errorText}</div>
-                        <Button
-                          className={"auth-button"}
-                          variant={"outlined"}
-                          onClick={() => {
-                            firebase.auth().signOut();
-                            window.location.reload();
-                          }}
-                        >
-                          {t("authorization.backButton")}
-                        </Button>
-                      </>
-                  }
+                  {() => (
+                    <>
+                      <div>{errorText}</div>
+                      <Button
+                        className={"auth-button"}
+                        variant={"outlined"}
+                        onClick={() => {
+                          firebase.auth().signOut();
+                          window.location.reload();
+                        }}
+                      >
+                        {t("authorization.backButton")}
+                      </Button>
+                    </>
+                  )}
                 </IfFirebaseUnAuthed>
               </>
             )}

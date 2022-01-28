@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Bar } from "react-chartjs-2";
 import "./Statistics.css";
 import Media from "react-media";
+import { useDataBase } from "../../shared/hooks/useDataBase";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -17,7 +18,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
-function Statistics({ players }) {
+function Statistics() {
+  const { players } = useDataBase();
   const { t } = useTranslation();
   const [category, setCategory] = useState("gamesPlayed");
   const [data, setData] = useState({

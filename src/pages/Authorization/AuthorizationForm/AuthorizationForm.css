@@ -1,18 +1,22 @@
 .makeStyles-paper-17 .close-button {
-  float: right; }
+  float: right;
+}
 
 .auth-form {
   clear: both;
   display: flex;
   flex-direction: column;
-  min-height: 200px; }
-  .auth-form .MuiTextField-root {
-    margin: 5px 0 5px 0; }
-  .auth-form .auth-button {
-    width: 200px !important;
-    height: 50px !important;
-    display: flex !important;
-    justify-content: space-between;
-    margin: 5px 0 5px 0; }
+  min-height: 200px;
+}
+.auth-form .MuiTextField-root {
+  margin: 5px 0 5px 0;
+}
+.auth-form .auth-button {
+  width: 200px !important;
+  height: 50px !important;
+  display: flex !important;
+  justify-content: space-between;
+  margin: 5px 0 5px 0;
+}
 
 /*# sourceMappingURL=AuthorizationForm.css.map */

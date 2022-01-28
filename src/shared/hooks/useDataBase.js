@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { PLAYERS } from "../../shared/mocks/mocks";
+import { PLAYERS } from "../mocks/mocks";
 import { useHistory } from "react-router";
-import { DEFAULT_THUMBNAIL } from "../../shared/constants/constants";
+import { DEFAULT_THUMBNAIL } from "../constants/constants";
 
-export function useMainPage() {
+export function useDataBase() {
   const [players, setPlayers] = useState(PLAYERS);
   const history = useHistory();
   function deletePlayer(event, id) {
