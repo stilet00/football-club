@@ -1,6 +1,7 @@
 import { useHistory, useParams } from "react-router";
 import { createRef, useCallback, useState } from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
+import moment from "moment";
 
 export function useForm(players) {
   const params = useParams();
@@ -9,7 +10,7 @@ export function useForm(players) {
     (players && players.find((item) => item.id === params.id)) || DEFAULT_PLAYER
   );
   const [fieldsFilled, setFieldsFilled] = useState(false);
-  const [selectedDate, setSelectedDate] = useState(player.birthDate.format());
+  const [selectedDate, setSelectedDate] = useState(getCorrectDate());
   const [errors, setErrors] = useState({
     name: false,
     surname: false,
@@ -31,6 +32,16 @@ export function useForm(players) {
       setFieldsFilled(true);
     }
   };
+
+  function getCorrectDate() {
+    if (typeof player.birthDate == "object") {
+      return player.birthDate.format();
+    } else {
+      const dateFromString = new Date(player.birthDate);
+      return moment(dateFromString).format();
+    }
+  }
+
   function clearFields() {
     setPlayer({ ...DEFAULT_PLAYER, id: player.id });
     setErrors({

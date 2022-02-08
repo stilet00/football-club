@@ -12,6 +12,7 @@ import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 import AddIcon from "@material-ui/icons/Add";
+import RefreshIcon from "@material-ui/icons/Refresh";
 import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
 import { PAGINATION_STEP } from "../../../shared/constants/constants";
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
   },
 });
 function PlayerList() {
-  const { players, deletePlayer } = useDataBase();
+  const { players, deletePlayer, refreshPlayers } = useDataBase();
   const { t } = useTranslation();
   const classes = useStyles();
   const { path } = useRouteMatch();
@@ -104,6 +105,9 @@ function PlayerList() {
           <Link to={path + "/add"}>
             <AddIcon />
           </Link>
+        </Fab>
+        <Fab aria-label="add" className={"action-button"} onClick={refreshPlayers}>
+            <RefreshIcon />
         </Fab>
         <Button
           aria-label="forward"
