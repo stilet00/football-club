@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;;AAErB,yBAAyB;EACvB,QAAQ;IACN,KAAK,EAAE,GAAG",
+"sources": ["Players.sass"],
+"names": [],
+"file": "Players.css"
+}

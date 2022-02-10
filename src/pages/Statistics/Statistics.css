@@ -1,0 +1,22 @@
+.main-chart-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.7);
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.chart-container {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  width: 100%;
+  min-height: 70vh;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=Statistics.css.map */

@@ -27,7 +27,7 @@
   },
   "location": "Liverpool's base stadium location",
   "statistics": {
-   "gamesPlayed": "Games played",
+    "gamesPlayed": "Games played",
     "timeOnField": "Time on the field, hrs.",
     "goals": "Goals shot",
     "price": "Price, $"
@@ -35,7 +35,13 @@
   "authorization": {
     "greetingsWord": "Hello",
     "googleButton": "Sing in with google",
+    "emailButton": "Sing in with email",
+    "registerButton": "Register with email",
     "singOutButton": "Sing out",
-    "googleSuccess": "You are successfully authorized with google.com!"
+    "googleSuccess": "You are successfully authorized with google.com!",
+    "formEmail": "Email",
+    "formPassword": "Password",
+    "formRepeat": "Repeat password",
+    "backButton": "Back"
   }
 }
