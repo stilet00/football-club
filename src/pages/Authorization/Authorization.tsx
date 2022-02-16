@@ -10,14 +10,23 @@ import "./Authorization.css";
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
-function Authorization(props) {
+
+export interface AuthInterface {
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
+function Authorization() {
   const { t } = useTranslation();
   const [errorText, setErrorText] = useState(null);
+
   function googleAuth() {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function Authentification({ email, password, repeatPassword }) {
+
+  function Authentification({ email, password, repeatPassword} : AuthInterface) {
     if (repeatPassword.length) {
       if (password === repeatPassword) {
         firebase
@@ -50,6 +59,7 @@ function Authorization(props) {
         });
     }
   }
+
   return (
     <FirebaseAuthConsumer>
       {({ isSignedIn, user, providerId }) => {
@@ -65,7 +75,9 @@ function Authorization(props) {
                   <VpnKeyIcon />
                   {t("authorization.googleButton")}
                 </Button>
-                <AuthorizationForm onFormSubmit={Authentification} />
+                <AuthorizationForm
+                    onFormSubmit={Authentification}
+                />
                 <AuthorizationForm
                   onFormSubmit={Authentification}
                   registration={true}

@@ -17,7 +17,7 @@ export function useMediaQuery() {
 }
 export function useToggle() {
   const [itemsShown, setItemShown] = useState(false);
-  function toggleItems(e) {
+  function toggleItems(e : any) {
     e.stopPropagation();
     setItemShown(!itemsShown);
   }
@@ -30,7 +30,7 @@ export function useToggle() {
 export function usePlayerItem() {
   const { path } = useRouteMatch();
   const history = useHistory();
-  function onPlayerClick(id) {
+  function onPlayerClick(id : string | undefined) {
     history.push(path + "/" + id);
   }
   return {

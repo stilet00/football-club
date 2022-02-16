@@ -10,6 +10,7 @@ import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
+import {Player} from "../../../shared/interfaces/interfaces";
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -28,6 +29,10 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
+interface PlayerItemProps extends Player {
+  deletePlayer?: any;
+}
+
 function PlayerItem({
   id,
   name,
@@ -38,7 +43,7 @@ function PlayerItem({
   price,
   deletePlayer,
   edited,
-}) {
+} : PlayerItemProps) {
   const [width] = useMediaQuery();
   const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
@@ -60,7 +65,7 @@ function PlayerItem({
     <>
       <StyledTableRow
         className={"single-player-item"}
-        onClick={(e) => onPlayerClick(id)}
+        onClick={() => onPlayerClick(id)}
       >
         <StyledTableCell
           scope="row"

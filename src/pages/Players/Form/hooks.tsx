@@ -2,9 +2,10 @@ import { useHistory, useParams } from "react-router";
 import { createRef, useCallback, useState } from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
 import moment from "moment";
+import {Players} from "../../../shared/interfaces/interfaces";
 
-export function useForm(players) {
-  const params = useParams();
+export function useForm(players : Players) {
+  const params: any = useParams();
   const history = useHistory();
   const [player, setPlayer] = useState(
     (players && players.find((item) => item.id === params.id)) || DEFAULT_PLAYER
@@ -17,7 +18,7 @@ export function useForm(players) {
     gamesPlayed: false,
     price: false,
   });
-  const handleDateChange = (date) => {
+  const handleDateChange = (date: any) => {
     setSelectedDate(date);
     setPlayer({
       ...player,
@@ -51,7 +52,7 @@ export function useForm(players) {
       price: false,
     });
   }
-  function validateFields(string, inputName) {
+  function validateFields(string : string, inputName : string) {
     if (inputName === "name" || inputName === "surname") {
       let textRegExp = /^[a-zA-Z]{1,10}$/gi;
       setErrors({ ...errors, [inputName]: !textRegExp.test(string) });
@@ -60,7 +61,7 @@ export function useForm(players) {
       setErrors({ ...errors, [inputName]: !numberRegExp.test(string) });
     }
   }
-  function onInputChange(e) {
+  function onInputChange(e : any) {
     validateFields(e.target.value.trim(), e.target.name);
     setPlayer({ ...player, [e.target.name]: e.target.value.trim() });
     if (

@@ -19,8 +19,9 @@ import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
-import { useTranslation } from "react-i18next";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
+import { Player } from "../../../shared/interfaces/interfaces";
+import {useTranslation} from "react-i18next";
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -36,6 +37,7 @@ const useStyles = makeStyles({
     minWidth: "100%",
   },
 });
+
 function PlayerList() {
   const { players, deletePlayer, refreshPlayers } = useDataBase();
   const { t } = useTranslation();
@@ -74,7 +76,7 @@ function PlayerList() {
                 currentPage * PAGINATION_STEP - PAGINATION_STEP,
                 currentPage * PAGINATION_STEP
               )
-              .map((player) => (
+              .map((player: Player) => (
                 <SwitchTransition mode={"out-in"}>
                   <CSSTransition
                     key={player.id}

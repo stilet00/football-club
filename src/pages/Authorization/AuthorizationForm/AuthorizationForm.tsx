@@ -7,6 +7,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import "./AuthorizationForm.css";
 import CloseIcon from "@material-ui/icons/Close";
+import {AuthInterface} from "../Authorization";
 
 function getModalStyle() {
   const top = 45;
@@ -31,7 +32,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AuthorizationForm({ onFormSubmit, registration }) {
+interface formProps {
+  onFormSubmit: ({ email, password, repeatPassword } : AuthInterface ) => void;
+  registration?: boolean;
+}
+
+export default function AuthorizationForm({ onFormSubmit, registration } : formProps) {
   const classes = useStyles();
   const { t } = useTranslation();
   const [modalStyle] = React.useState(getModalStyle);
@@ -41,7 +47,8 @@ export default function AuthorizationForm({ onFormSubmit, registration }) {
     password: "",
     repeatPassword: "",
   });
-  function onInputChange(e) {
+
+  function onInputChange(e: any) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 
