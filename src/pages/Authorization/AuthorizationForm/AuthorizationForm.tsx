@@ -39,9 +39,13 @@ interface formProps {
 
 export default function AuthorizationForm({ onFormSubmit, registration } : formProps) {
   const classes = useStyles();
+
   const { t } = useTranslation();
+
   const [modalStyle] = React.useState(getModalStyle);
+
   const [open, setOpen] = React.useState(false);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -59,6 +63,7 @@ export default function AuthorizationForm({ onFormSubmit, registration } : formP
   const handleClose = () => {
     setOpen(false);
   };
+
   const repeatField = registration ? (
     <TextField
       required
@@ -71,6 +76,7 @@ export default function AuthorizationForm({ onFormSubmit, registration } : formP
       onChange={onInputChange}
     />
   ) : null;
+
   const buttonStart = registration ? (
     <Button
       type="button"
@@ -90,6 +96,7 @@ export default function AuthorizationForm({ onFormSubmit, registration } : formP
       <EmailIcon /> {t("authorization.emailButton")}
     </Button>
   );
+
   const invalidSubmitButton = registration
     ? user.password !== user.repeatPassword || user.email === ""
     : user.email === "" || user.password === "";

@@ -27,7 +27,7 @@ yarn-error.log*
 /src/pages/Authorization/.sass-cache/
 /src/pages/Players/Form/.sass-cache/
 /src/pages/Main/.sass-cache/
-/src/pages/MenuBar/.sass-cache/
+/src/components/MenuBar/.sass-cache/
 /src/pages/Players/.sass-cache/
 /src/pages/Players/PlayerItem/.sass-cache/
 /src/pages/Players/PlayersList/.sass-cache/

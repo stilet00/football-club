@@ -19,7 +19,7 @@ import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
-import { Player } from "../../../shared/interfaces/interfaces";
+import { Player } from "../../../shared/interfaces/shared";
 import { useTranslation } from "react-i18next";
 
 const StyledTableCell = withStyles((theme) => ({

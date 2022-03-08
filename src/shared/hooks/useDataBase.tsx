@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PLAYERS } from "../mocks/mocks";
 import { useHistory } from "react-router";
 import { DEFAULT_THUMBNAIL } from "../constants/constants";
-import { Player, Players } from "../interfaces/interfaces";
+import { Player, Players } from "../interfaces/shared";
 
 export function useDataBase() {
   // @ts-ignore

@@ -2,7 +2,7 @@ import { useHistory, useParams } from "react-router";
 import {createRef, useCallback, useState} from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
 import moment from "moment";
-import { Players } from "../../../shared/interfaces/interfaces";
+import { Players } from "../../../shared/interfaces/shared";
 
 export function useForm(players : Players) {
   const params: any = useParams();

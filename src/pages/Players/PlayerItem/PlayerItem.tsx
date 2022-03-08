@@ -10,7 +10,7 @@ import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import {Player} from "../../../shared/interfaces/interfaces";
+import {Player} from "../../../shared/interfaces/shared";
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {

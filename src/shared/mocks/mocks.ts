@@ -1,5 +1,5 @@
 import moment from "moment";
-import { Players } from "../interfaces/interfaces";
+import { Players } from "../interfaces/shared";
 let date = moment("1987 11 06", "YYYY MM DO");
 
 export const PLAYERS : Players = [

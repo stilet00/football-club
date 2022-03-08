@@ -1,5 +1,5 @@
 import React from "react";
-import MenuBar from "../MenuBar/MenuBar";
+import MenuBar from "../../components/MenuBar/MenuBar";
 import { Switch, Route } from "react-router-dom";
 import "./Main.css";
 import background from "../../images/background.jpg";

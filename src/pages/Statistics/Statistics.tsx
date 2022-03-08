@@ -9,7 +9,7 @@ import { Bar } from "react-chartjs-2";
 import "./Statistics.css";
 import Media from "react-media";
 import { useDataBase } from "../../shared/hooks/useDataBase";
-import {Player} from "../../shared/interfaces/interfaces";
+import {Player} from "../../shared/interfaces/shared";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
