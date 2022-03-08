@@ -19,6 +19,7 @@ export interface AuthInterface {
 
 function Authorization() {
   const { t } = useTranslation();
+
   const [errorText, setErrorText] = useState(null);
 
   function googleAuth() {
@@ -33,7 +34,6 @@ function Authorization() {
           .auth()
           .createUserWithEmailAndPassword(email, password)
           .then((userCredential) => {
-            var user = userCredential.user;
           })
           .catch((error) => {
             var errorCode = error.code;
@@ -49,7 +49,6 @@ function Authorization() {
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-          var user = userCredential.user;
         })
         .catch((error) => {
           var errorCode = error.code;

@@ -1,23 +1,31 @@
 import { useHistory, useParams } from "react-router";
-import { createRef, useCallback, useState } from "react";
+import {createRef, useCallback, useState} from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
 import moment from "moment";
-import {Players} from "../../../shared/interfaces/interfaces";
+import { Players } from "../../../shared/interfaces/interfaces";
 
 export function useForm(players : Players) {
   const params: any = useParams();
+
   const history = useHistory();
+
   const [player, setPlayer] = useState(
     (players && players.find((item) => item.id === params.id)) || DEFAULT_PLAYER
   );
+
   const [fieldsFilled, setFieldsFilled] = useState(false);
+
   const [selectedDate, setSelectedDate] = useState(getCorrectDate());
+
   const [errors, setErrors] = useState({
     name: false,
     surname: false,
     gamesPlayed: false,
     price: false,
+    timeOnField: false,
+    goals: false
   });
+
   const handleDateChange = (date: any) => {
     setSelectedDate(date);
     setPlayer({
@@ -50,8 +58,11 @@ export function useForm(players : Players) {
       surname: false,
       gamesPlayed: false,
       price: false,
+      timeOnField: false,
+      goals: false
     });
   }
+
   function validateFields(string : string, inputName : string) {
     if (inputName === "name" || inputName === "surname") {
       let textRegExp = /^[a-zA-Z]{1,10}$/gi;
@@ -61,6 +72,7 @@ export function useForm(players : Players) {
       setErrors({ ...errors, [inputName]: !numberRegExp.test(string) });
     }
   }
+
   function onInputChange(e : any) {
     validateFields(e.target.value.trim(), e.target.name);
     setPlayer({ ...player, [e.target.name]: e.target.value.trim() });
@@ -74,7 +86,8 @@ export function useForm(players : Players) {
     }
   }
 
-  const fileInput = createRef();
+  const fileInput = createRef<HTMLInputElement>();
+
   const uploadImage = useCallback(
     (file) => {
       if (file) {

@@ -15,9 +15,11 @@ export function useMediaQuery() {
 
   return screenSize;
 }
+
 export function useToggle() {
   const [itemsShown, setItemShown] = useState(false);
-  function toggleItems(e : any) {
+
+  function toggleItems(e: React.MouseEvent) {
     e.stopPropagation();
     setItemShown(!itemsShown);
   }

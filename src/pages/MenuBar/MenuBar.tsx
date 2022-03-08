@@ -15,13 +15,18 @@ import { useTranslation } from "react-i18next";
 import { FirebaseAuthConsumer } from "@react-firebase/auth";
 import firebase from "firebase";
 import { useHistory } from "react-router";
+
 function MenuBar() {
   const { t, i18n } = useTranslation();
+
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
   };
+
   const { toggleMenu, menuShown, handleClickAway, path } = useMenuBar();
+
   const history = useHistory();
+
   return (
     <FirebaseAuthConsumer>
       {({ isSignedIn, user, providerId }) => {

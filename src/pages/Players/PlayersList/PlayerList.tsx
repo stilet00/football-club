@@ -10,7 +10,6 @@ import Paper from "@material-ui/core/Paper";
 import PlayerItem from "../PlayerItem/PlayerItem";
 import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
 import AddIcon from "@material-ui/icons/Add";
 import RefreshIcon from "@material-ui/icons/Refresh";
 import { useRouteMatch } from "react-router";
@@ -21,7 +20,8 @@ import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
 import { Player } from "../../../shared/interfaces/interfaces";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -39,11 +39,16 @@ const useStyles = makeStyles({
 });
 
 function PlayerList() {
-  const { players, deletePlayer, refreshPlayers } = useDataBase();
-  const { t } = useTranslation();
   const classes = useStyles();
+
+  const { players, deletePlayer, refreshPlayers } = useDataBase();
+
+  const { t } = useTranslation();
+
   const { path } = useRouteMatch();
+
   const { currentPage, goForward, goBack } = usePagination();
+
   return (
     <>
       <TableContainer component={Paper} className={"players-list"}>
@@ -77,17 +82,7 @@ function PlayerList() {
                 currentPage * PAGINATION_STEP
               )
               .map((player: Player) => (
-                <SwitchTransition mode={"out-in"}>
-                  <CSSTransition
-                    key={player.id}
-                    addEndListener={(node, done) => {
-                      node.addEventListener("transitionend", done, false);
-                    }}
-                    classNames={"fade"}
-                  >
                     <PlayerItem {...player} deletePlayer={deletePlayer} />
-                  </CSSTransition>
-                </SwitchTransition>
               ))}
           </TableBody>
         </Table>

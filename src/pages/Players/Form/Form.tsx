@@ -10,8 +10,10 @@ import moment from "moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import { useTranslation } from "react-i18next";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
+
 function Form() {
   const { players, onFormSubmit } = useDataBase();
+
   const {
     player,
     onInputChange,
@@ -24,7 +26,9 @@ function Form() {
     fieldsFilled,
     errors,
   } = useForm(players);
+
   const { t } = useTranslation();
+  // @ts-ignore
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <form
@@ -52,7 +56,11 @@ function Form() {
               ref={fileInput}
               accept={"image/jpeg,image/png,image/gif"}
               className={"photo-input"}
-              onChange={() => uploadImage(fileInput.current.files[0])}
+              onChange={() => {
+                if (fileInput && fileInput.current && fileInput.current.files) {
+                  uploadImage(fileInput.current.files[0] )
+                }
+              }}
             />
             <AddAPhotoIcon fontSize={"large"} className={"photo-icon"} />
           </div>

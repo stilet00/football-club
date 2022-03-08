@@ -48,7 +48,7 @@ export default function AuthorizationForm({ onFormSubmit, registration } : formP
     repeatPassword: "",
   });
 
-  function onInputChange(e: any) {
+  function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
 

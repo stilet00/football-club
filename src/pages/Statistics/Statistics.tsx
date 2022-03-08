@@ -9,6 +9,8 @@ import { Bar } from "react-chartjs-2";
 import "./Statistics.css";
 import Media from "react-media";
 import { useDataBase } from "../../shared/hooks/useDataBase";
+import {Player} from "../../shared/interfaces/interfaces";
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -18,18 +20,30 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
 }));
+
+export interface ChartData {
+  labels: Array<string>;
+  datasets?: Array<any>;
+}
+
 function Statistics() {
+  const classes = useStyles();
+
   const { players } = useDataBase();
+
   const { t } = useTranslation();
+
   const [category, setCategory] = useState("gamesPlayed");
-  const [data, setData] = useState({
-    labels: [...players.map((item) => item.name)],
+
+  const [data, setData] = useState<ChartData>({
+    labels: [...players.map((item: Player) => item.name)],
   });
+
   const options = {
     scales: {
       y: {
         ticks: {
-          callback: function (value, index, values) {
+          callback: function (value: number) {
             const additionalText =
               category === "price"
                 ? "$."
@@ -53,10 +67,10 @@ function Statistics() {
     responsive: true,
   };
 
-  const classes = useStyles();
-  const handleChange = (event) => {
-    setCategory(event.target.value);
+  const handleChange = (e:React.ChangeEvent<any>) => {
+    setCategory(e.target.value);
   };
+
   useEffect(() => {
     setData({
       ...data,
@@ -79,7 +93,8 @@ function Statistics() {
             "rgba(255, 159, 64, 1)",
           ],
           borderWidth: 1,
-          data: [...players.map((item) => item[category])],
+          // @ts-ignore
+          data: [...players.map((item: Player) => item[category])],
           label: t("statistics." + category),
           borderRadius: 5,
         },
@@ -110,11 +125,11 @@ function Statistics() {
       <div className="chart-container">
         <Media
           query="(max-width: 500px)"
-          render={() => <Bar data={data} options={options} width={"100px"} />}
+          render={() => <Bar data={data} options={options} width={100} type={""}/>}
         />
         <Media
           query="(min-width: 501px)"
-          render={() => <Bar data={data} options={options} />}
+          render={() => <Bar data={data} options={options} width={undefined} type={""}/>}
         />
       </div>
     </div>
