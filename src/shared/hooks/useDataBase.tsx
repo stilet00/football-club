@@ -5,12 +5,11 @@ import { DEFAULT_THUMBNAIL } from "../constants/constants";
 import { Player, Players } from "../interfaces/shared";
 
 export function useDataBase() {
-  // @ts-ignore
-  const [players, setPlayers] = useState(JSON.parse(localStorage.getItem('players')) || PLAYERS);
+  const [players, setPlayers] = useState<Players>(JSON.parse(localStorage.getItem('players')) || PLAYERS);
 
   const history = useHistory();
 
-  function deletePlayer(event: React.MouseEvent, id: string) {
+  function deletePlayer(event: React.MouseEvent, id: string | undefined) {
     event.stopPropagation();
     const newPlayersList = players.filter((item: Player) => item.id !== id);
     setPlayers(newPlayersList);

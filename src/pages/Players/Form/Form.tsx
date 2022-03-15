@@ -28,7 +28,6 @@ function Form() {
   } = useForm(players);
 
   const { t } = useTranslation();
-  // @ts-ignore
   return (
     <MuiPickersUtilsProvider utils={MomentUtils}>
       <form

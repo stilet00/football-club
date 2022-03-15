@@ -10,7 +10,8 @@ import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import {Player} from "../../../shared/interfaces/shared";
+import { Player } from "../../../shared/interfaces/shared";
+
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -18,6 +19,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -30,7 +32,7 @@ const StyledTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 interface PlayerItemProps extends Player {
-  deletePlayer?: any;
+  deletePlayer: (event: React.MouseEvent, id: string | undefined) => void;
 }
 
 function PlayerItem({

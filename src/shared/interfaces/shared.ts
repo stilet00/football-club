@@ -8,7 +8,7 @@ export interface Player {
         preview:
             string;
     };
-    birthDate: Moment | string;
+    birthDate: Moment | string | null;
     gamesPlayed: string;
     price: string;
     edited: Moment | null;

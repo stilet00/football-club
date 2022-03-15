@@ -1,11 +1,16 @@
 import { useHistory, useParams } from "react-router";
-import {createRef, useCallback, useState} from "react";
+import React, {createRef, useCallback, useState} from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
-import moment from "moment";
+import moment, {Moment} from "moment";
 import { Players } from "../../../shared/interfaces/shared";
+import {MaterialUiPickersDate} from "@material-ui/pickers/typings/date";
+
+interface Params {
+  id: string;
+}
 
 export function useForm(players : Players) {
-  const params: any = useParams();
+  const params: Params = useParams();
 
   const history = useHistory();
 
@@ -15,7 +20,7 @@ export function useForm(players : Players) {
 
   const [fieldsFilled, setFieldsFilled] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(getCorrectDate());
+  const [selectedDate, setSelectedDate] = useState<string | Moment | null>(getCorrectDate());
 
   const [errors, setErrors] = useState({
     name: false,
@@ -26,12 +31,14 @@ export function useForm(players : Players) {
     goals: false
   });
 
-  const handleDateChange = (date: any) => {
+  const handleDateChange = (date: MaterialUiPickersDate):void => {
     setSelectedDate(date);
+
     setPlayer({
       ...player,
       birthDate: date,
     });
+
     if (
       player.name !== "" &&
       player.surname !== "" &&
@@ -42,17 +49,22 @@ export function useForm(players : Players) {
     }
   };
 
-  function getCorrectDate() {
-    if (typeof player.birthDate == "object") {
-      return player.birthDate.format();
+  function getCorrectDate(): string {
+    if (player.birthDate) {
+      if (typeof player.birthDate == "object") {
+        return player.birthDate.format();
+      } else {
+        const dateFromString = new Date(player.birthDate);
+        return moment(dateFromString).format();
+      }
     } else {
-      const dateFromString = new Date(player.birthDate);
-      return moment(dateFromString).format();
+      return ""
     }
   }
 
   function clearFields() {
     setPlayer({ ...DEFAULT_PLAYER, id: player.id });
+
     setErrors({
       name: false,
       surname: false,
@@ -73,9 +85,11 @@ export function useForm(players : Players) {
     }
   }
 
-  function onInputChange(e : any) {
+  function onInputChange(e : React.ChangeEvent<HTMLInputElement>) {
     validateFields(e.target.value.trim(), e.target.name);
+
     setPlayer({ ...player, [e.target.name]: e.target.value.trim() });
+
     if (
       player.name !== "" &&
       player.surname !== "" &&

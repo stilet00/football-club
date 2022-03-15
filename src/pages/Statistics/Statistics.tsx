@@ -93,7 +93,6 @@ function Statistics() {
             "rgba(255, 159, 64, 1)",
           ],
           borderWidth: 1,
-          // @ts-ignore
           data: [...players.map((item: Player) => item[category])],
           label: t("statistics." + category),
           borderRadius: 5,
