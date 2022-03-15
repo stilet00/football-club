@@ -57,7 +57,7 @@ function Form() {
               className={"photo-input"}
               onChange={() => {
                 if (fileInput && fileInput.current && fileInput.current.files) {
-                  uploadImage(fileInput.current.files[0] )
+                  uploadImage(fileInput.current.files[0]);
                 }
               }}
             />

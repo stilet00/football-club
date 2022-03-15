@@ -12,7 +12,7 @@ interface Route {
   component: React.FunctionComponent;
 }
 
-interface Routes extends Array<Route>{}
+interface Routes extends Array<Route> {}
 
 export const mainRoutes: Routes = [
   {
@@ -61,5 +61,5 @@ export const playersRoutes = [
     exact: true,
     path: "/players/:id",
     component: Form,
-  }
+  },
 ];

@@ -2,10 +2,14 @@ import { useState } from "react";
 import { PLAYERS } from "../mocks/mocks";
 import { useHistory } from "react-router";
 import { DEFAULT_THUMBNAIL } from "../constants/constants";
-import { Player, Players } from "../interfaces/shared";
+import { Player } from "../interfaces/player";
 
 export function useDataBase() {
-  const [players, setPlayers] = useState<Players>(JSON.parse(localStorage.getItem('players')) || PLAYERS);
+  const playersFromStorage = localStorage.getItem("players");
+
+  const [players, setPlayers] = useState(
+    playersFromStorage ? JSON.parse(playersFromStorage) : PLAYERS
+  );
 
   const history = useHistory();
 
@@ -21,7 +25,9 @@ export function useDataBase() {
       player.photo = DEFAULT_THUMBNAIL;
     }
     if (player.id) {
-      const newPlayersList = players.map((item: Player) => (item.id === player.id ? player : item));
+      const newPlayersList = players.map((item: Player) =>
+        item.id === player.id ? player : item
+      );
       setPlayers(newPlayersList);
       saveToLocalStorage(newPlayersList);
     } else {
@@ -33,19 +39,19 @@ export function useDataBase() {
     history.push("/players");
   }
 
-  function saveToLocalStorage(newPlayersList: Players) {
-    localStorage.setItem('players', JSON.stringify(newPlayersList));
+  function saveToLocalStorage(newPlayersList: Array<Player>) {
+    localStorage.setItem("players", JSON.stringify(newPlayersList));
   }
 
   function refreshPlayers() {
     setPlayers(PLAYERS);
-    localStorage.removeItem('players');
+    localStorage.removeItem("players");
   }
 
   return {
     players,
     onFormSubmit,
     deletePlayer,
-    refreshPlayers
+    refreshPlayers,
   };
 }

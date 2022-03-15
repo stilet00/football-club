@@ -1,8 +1,8 @@
 import moment from "moment";
-import { Players } from "../interfaces/shared";
+import { Player } from "../interfaces/player";
 let date = moment("1987 11 06", "YYYY MM DO");
 
-export const PLAYERS : Players = [
+export const PLAYERS: Array<Player> = [
   {
     id: "1",
     name: "Alisson",
@@ -16,7 +16,7 @@ export const PLAYERS : Players = [
     price: "50000",
     timeOnField: "105",
     goals: "10",
-    edited: null
+    edited: null,
   },
   {
     id: "2",
@@ -31,7 +31,7 @@ export const PLAYERS : Players = [
     price: "75000",
     timeOnField: "180",
     goals: "25",
-    edited: null
+    edited: null,
   },
   {
     id: "3",
@@ -46,7 +46,7 @@ export const PLAYERS : Players = [
     price: "90000",
     timeOnField: "57",
     goals: "55",
-    edited: null
+    edited: null,
   },
   {
     id: "4",
@@ -61,7 +61,7 @@ export const PLAYERS : Players = [
     price: "15000",
     timeOnField: "99",
     goals: "17",
-    edited: null
+    edited: null,
   },
   {
     id: "5",
@@ -76,7 +76,7 @@ export const PLAYERS : Players = [
     price: "68000",
     timeOnField: "5",
     goals: "7",
-    edited: null
+    edited: null,
   },
   {
     id: "6",
@@ -91,7 +91,7 @@ export const PLAYERS : Players = [
     price: "49000",
     timeOnField: "67",
     goals: "1",
-    edited: null
+    edited: null,
   },
   {
     id: "7",
@@ -106,7 +106,7 @@ export const PLAYERS : Players = [
     price: "88000",
     timeOnField: "56",
     goals: "24",
-    edited: null
+    edited: null,
   },
   {
     id: "8",
@@ -121,7 +121,7 @@ export const PLAYERS : Players = [
     price: "19000",
     timeOnField: "43",
     goals: "30",
-    edited: null
+    edited: null,
   },
   {
     id: "9",
@@ -136,7 +136,7 @@ export const PLAYERS : Players = [
     price: "63000",
     timeOnField: "98",
     goals: "17",
-    edited: null
+    edited: null,
   },
   {
     id: "10",
@@ -151,7 +151,7 @@ export const PLAYERS : Players = [
     price: "82000",
     timeOnField: "48",
     goals: "44",
-    edited: null
+    edited: null,
   },
   {
     id: "11",
@@ -166,6 +166,6 @@ export const PLAYERS : Players = [
     price: "57000",
     timeOnField: "106",
     goals: "32",
-    edited: null
+    edited: null,
   },
 ];

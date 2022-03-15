@@ -1,15 +1,15 @@
 import { useHistory, useParams } from "react-router";
-import React, {createRef, useCallback, useState} from "react";
+import React, { createRef, useCallback, useState } from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
-import moment, {Moment} from "moment";
-import { Players } from "../../../shared/interfaces/shared";
-import {MaterialUiPickersDate} from "@material-ui/pickers/typings/date";
+import moment, { Moment } from "moment";
+import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
+import { Player } from "../../../shared/interfaces/player";
 
 interface Params {
   id: string;
 }
 
-export function useForm(players : Players) {
+export function useForm(players: Array<Player>) {
   const params: Params = useParams();
 
   const history = useHistory();
@@ -20,7 +20,9 @@ export function useForm(players : Players) {
 
   const [fieldsFilled, setFieldsFilled] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState<string | Moment | null>(getCorrectDate());
+  const [selectedDate, setSelectedDate] = useState<string | Moment | null>(
+    getCorrectDate()
+  );
 
   const [errors, setErrors] = useState({
     name: false,
@@ -28,10 +30,10 @@ export function useForm(players : Players) {
     gamesPlayed: false,
     price: false,
     timeOnField: false,
-    goals: false
+    goals: false,
   });
 
-  const handleDateChange = (date: MaterialUiPickersDate):void => {
+  const handleDateChange = (date: MaterialUiPickersDate): void => {
     setSelectedDate(date);
 
     setPlayer({
@@ -58,7 +60,7 @@ export function useForm(players : Players) {
         return moment(dateFromString).format();
       }
     } else {
-      return ""
+      return "";
     }
   }
 
@@ -71,11 +73,11 @@ export function useForm(players : Players) {
       gamesPlayed: false,
       price: false,
       timeOnField: false,
-      goals: false
+      goals: false,
     });
   }
 
-  function validateFields(string : string, inputName : string) {
+  function validateFields(string: string, inputName: string) {
     if (inputName === "name" || inputName === "surname") {
       let textRegExp = /^[a-zA-Z]{1,10}$/gi;
       setErrors({ ...errors, [inputName]: !textRegExp.test(string) });
@@ -85,7 +87,7 @@ export function useForm(players : Players) {
     }
   }
 
-  function onInputChange(e : React.ChangeEvent<HTMLInputElement>) {
+  function onInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     validateFields(e.target.value.trim(), e.target.name);
 
     setPlayer({ ...player, [e.target.name]: e.target.value.trim() });

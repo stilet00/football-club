@@ -32,7 +32,7 @@ export function useToggle() {
 export function usePlayerItem() {
   const { path } = useRouteMatch();
   const history = useHistory();
-  function onPlayerClick(id : string | undefined) {
+  function onPlayerClick(id: string | undefined) {
     history.push(path + "/" + id);
   }
   return {

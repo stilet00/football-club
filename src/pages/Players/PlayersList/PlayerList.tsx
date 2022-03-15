@@ -19,7 +19,7 @@ import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
-import { Player } from "../../../shared/interfaces/shared";
+import { Player } from "../../../shared/interfaces/player";
 import { useTranslation } from "react-i18next";
 
 const StyledTableCell = withStyles((theme) => ({
@@ -82,7 +82,7 @@ function PlayerList() {
                 currentPage * PAGINATION_STEP
               )
               .map((player: Player) => (
-                    <PlayerItem {...player} deletePlayer={deletePlayer} />
+                <PlayerItem {...player} deletePlayer={deletePlayer} />
               ))}
           </TableBody>
         </Table>
@@ -103,8 +103,12 @@ function PlayerList() {
             <AddIcon />
           </Link>
         </Fab>
-        <Fab aria-label="add" className={"action-button"} onClick={refreshPlayers}>
-            <RefreshIcon />
+        <Fab
+          aria-label="add"
+          className={"action-button"}
+          onClick={refreshPlayers}
+        >
+          <RefreshIcon />
         </Fab>
         <Button
           aria-label="forward"

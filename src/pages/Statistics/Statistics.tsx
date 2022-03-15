@@ -9,7 +9,7 @@ import { Bar } from "react-chartjs-2";
 import "./Statistics.css";
 import Media from "react-media";
 import { useDataBase } from "../../shared/hooks/useDataBase";
-import {Player} from "../../shared/interfaces/shared";
+import { Player } from "../../shared/interfaces/player";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -33,7 +33,7 @@ function Statistics() {
 
   const { t } = useTranslation();
 
-  const [category, setCategory] = useState("gamesPlayed");
+  const [category, setCategory] = useState<keyof Player>("gamesPlayed");
 
   const [data, setData] = useState<ChartData>({
     labels: [...players.map((item: Player) => item.name)],
@@ -67,7 +67,7 @@ function Statistics() {
     responsive: true,
   };
 
-  const handleChange = (e:React.ChangeEvent<any>) => {
+  const handleChange = (e: React.ChangeEvent<any>) => {
     setCategory(e.target.value);
   };
 
@@ -124,11 +124,15 @@ function Statistics() {
       <div className="chart-container">
         <Media
           query="(max-width: 500px)"
-          render={() => <Bar data={data} options={options} width={100} type={""}/>}
+          render={() => (
+            <Bar data={data} options={options} width={100} type={""} />
+          )}
         />
         <Media
           query="(min-width: 501px)"
-          render={() => <Bar data={data} options={options} width={undefined} type={""}/>}
+          render={() => (
+            <Bar data={data} options={options} width={undefined} type={""} />
+          )}
         />
       </div>
     </div>

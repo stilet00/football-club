@@ -27,14 +27,17 @@ function Authorization() {
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
 
-  function Authentification({ email, password, repeatPassword} : AuthInterface) {
+  function Authentification({
+    email,
+    password,
+    repeatPassword,
+  }: AuthInterface) {
     if (repeatPassword.length) {
       if (password === repeatPassword) {
         firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-          })
+          .then((userCredential) => {})
           .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -48,8 +51,7 @@ function Authorization() {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-        })
+        .then((userCredential) => {})
         .catch((error) => {
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -74,9 +76,7 @@ function Authorization() {
                   <VpnKeyIcon />
                   {t("authorization.googleButton")}
                 </Button>
-                <AuthorizationForm
-                    onFormSubmit={Authentification}
-                />
+                <AuthorizationForm onFormSubmit={Authentification} />
                 <AuthorizationForm
                   onFormSubmit={Authentification}
                   registration={true}

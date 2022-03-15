@@ -10,7 +10,7 @@ import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Player } from "../../../shared/interfaces/shared";
+import { Player } from "../../../shared/interfaces/player";
 
 const StyledTableRow = withStyles((theme) => ({
   root: {
@@ -45,7 +45,9 @@ function PlayerItem({
   price,
   deletePlayer,
   edited,
-} : PlayerItemProps) {
+}: PlayerItemProps) {
+  console.log(edited);
+
   const [width] = useMediaQuery();
   const { onPlayerClick } = usePlayerItem();
   const { itemsShown, toggleItems } = useToggle();
@@ -105,7 +107,7 @@ function PlayerItem({
           </Button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {edited !== null ? edited.fromNow() : t("table.editedFalse")}
+          {edited !== null ? moment(edited).fromNow() : t("table.editedFalse")}
         </StyledTableCell>
       </StyledTableRow>
       <CSSTransition
@@ -137,7 +139,7 @@ function PlayerItem({
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null
-              ? "Edited " + edited.fromNow()
+              ? "Edited " + moment(edited).fromNow()
               : t("table.editedFalse")}
           </StyledTableCell>
         </StyledTableRow>
