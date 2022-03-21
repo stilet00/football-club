@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 function PlayerList() {
   const classes = useStyles();
 
-  const { players, deletePlayer, refreshPlayers } = useDataBase();
+  const { players, deletePlayer } = useDataBase();
 
   const { t } = useTranslation();
 
@@ -102,13 +102,6 @@ function PlayerList() {
           <Link to={path + "/add"}>
             <AddIcon />
           </Link>
-        </Fab>
-        <Fab
-          aria-label="add"
-          className={"action-button"}
-          onClick={refreshPlayers}
-        >
-          <RefreshIcon />
         </Fab>
         <Button
           aria-label="forward"

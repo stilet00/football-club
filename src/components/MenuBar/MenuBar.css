@@ -18,14 +18,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
   border-radius: 10px;
+  background-clip: text;
+  background: #0d3434;
+  -webkit-background-clip: text;
   font-family: "Oswald", sans-serif;
   font-size: 55px;
-  margin: 0;
   text-align: center;
-  color: #e31b23;
-  text-shadow: 0.5px 0.5px 0.5px white;
-  letter-spacing: 1px;
+  color: transparent;
+  text-shadow: rgba(4, 133, 128, 0.5) 0px 3px 3px;
 }
 .menu .nav-button {
   position: relative;
@@ -48,7 +50,7 @@
 }
 .menu .logo-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   margin-right: 10px;
 }
 .menu .logo-container .header-logo {

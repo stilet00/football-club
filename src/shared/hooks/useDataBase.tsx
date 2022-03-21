@@ -43,15 +43,9 @@ export function useDataBase() {
     localStorage.setItem("players", JSON.stringify(newPlayersList));
   }
 
-  function refreshPlayers() {
-    setPlayers(PLAYERS);
-    localStorage.removeItem("players");
-  }
-
   return {
     players,
     onFormSubmit,
-    deletePlayer,
-    refreshPlayers,
+    deletePlayer
   };
 }
