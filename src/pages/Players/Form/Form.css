@@ -10,8 +10,8 @@
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
-  background: #00b2a9;
-  background: radial-gradient(circle, #00b2a9 46%, #003c33 89%, #00b2a9 255%);
+  background: rgba(0, 178, 169, 0.8);
+  backdrop-filter: blur(5px);
 }
 .players-form .save-photo-button {
   width: 30%;
