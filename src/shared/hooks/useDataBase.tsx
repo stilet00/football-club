@@ -46,6 +46,6 @@ export function useDataBase() {
   return {
     players,
     onFormSubmit,
-    deletePlayer
+    deletePlayer,
   };
 }

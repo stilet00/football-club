@@ -16,11 +16,6 @@ interface Routes extends Array<Route> {}
 
 export const mainRoutes: Routes = [
   {
-    exact: true,
-    path: "/add",
-    component: Form,
-  },
-  {
     exact: false,
     path: "/players/",
     component: Players,
@@ -59,7 +54,7 @@ export const playersRoutes = [
   },
   {
     exact: true,
-    path: "/players/:id",
+    path: "/players/add/:id",
     component: Form,
   },
 ];

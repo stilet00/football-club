@@ -11,8 +11,6 @@ import PlayerItem from "../PlayerItem/PlayerItem";
 import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import AddIcon from "@material-ui/icons/Add";
-import RefreshIcon from "@material-ui/icons/Refresh";
-import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
 import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
@@ -44,8 +42,6 @@ function PlayerList() {
   const { players, deletePlayer } = useDataBase();
 
   const { t } = useTranslation();
-
-  const { path } = useRouteMatch();
 
   const { currentPage, goForward, goBack } = usePagination();
 
@@ -82,38 +78,42 @@ function PlayerList() {
                 currentPage * PAGINATION_STEP
               )
               .map((player: Player) => (
-                <PlayerItem {...player} deletePlayer={deletePlayer} />
+                <PlayerItem
+                  {...player}
+                  deletePlayer={deletePlayer}
+                  key={player.id}
+                />
               ))}
           </TableBody>
         </Table>
+        <div className={"control-buttons control-buttons__table-controls"}>
+          <Button
+            aria-label="back"
+            name={"back"}
+            onClick={goBack}
+            disabled={currentPage === 1}
+            variant={"outlined"}
+            className={"action-button"}
+          >
+            <ArrowBack />
+          </Button>
+          <Fab aria-label="add" className={"action-button"}>
+            <Link to={"/players/add"}>
+              <AddIcon />
+            </Link>
+          </Fab>
+          <Button
+            aria-label="forward"
+            name={"forward"}
+            onClick={goForward}
+            disabled={players.length - currentPage * PAGINATION_STEP <= 0}
+            variant={"outlined"}
+            className={"action-button"}
+          >
+            <ArrowForward id={"back"} />
+          </Button>
+        </div>
       </TableContainer>
-      <div className={"control-buttons"}>
-        <Button
-          aria-label="back"
-          name={"back"}
-          onClick={goBack}
-          disabled={currentPage === 1}
-          variant={"outlined"}
-          className={"action-button"}
-        >
-          <ArrowBack />
-        </Button>
-        <Fab aria-label="add" className={"action-button"}>
-          <Link to={path + "/add"}>
-            <AddIcon />
-          </Link>
-        </Fab>
-        <Button
-          aria-label="forward"
-          name={"forward"}
-          onClick={goForward}
-          disabled={players.length - currentPage * PAGINATION_STEP <= 0}
-          variant={"outlined"}
-          className={"action-button"}
-        >
-          <ArrowForward id={"back"} />
-        </Button>
-      </div>
     </>
   );
 }

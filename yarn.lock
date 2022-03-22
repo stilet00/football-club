@@ -10126,7 +10126,7 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.1.tgz"
   "version" "17.0.1"
 
-"react-media@1.10.0":
+"react-media@^1.10.0":
   "integrity" "sha512-FjgYmFoaPTImST06jqotuu0Mk8LOXiGYS/fIyiXuLnf20l3DPniBwtrxi604/HxxjqvmHS3oz5rAwnqdvosV4A=="
   "resolved" "https://registry.npmjs.org/react-media/-/react-media-1.10.0.tgz"
   "version" "1.10.0"

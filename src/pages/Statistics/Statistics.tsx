@@ -99,7 +99,7 @@ function Statistics() {
         },
       ],
     });
-  }, [category]);
+  }, [category, data, players, t]);
 
   return (
     <div className={"main-chart-container"}>

@@ -14,7 +14,11 @@ a {
   display: flex;
   justify-content: space-evenly;
   width: 80%;
-  margin: 10px auto;
+  margin: 20px auto;
+}
+.control-buttons__table-controls {
+  justify-content: space-between;
+  margin: 30px auto 25px auto;
 }
 
 a {

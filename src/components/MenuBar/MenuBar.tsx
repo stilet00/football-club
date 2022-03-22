@@ -75,7 +75,7 @@ function MenuBar() {
                       </Link>
                     </li>
                     <li>
-                      <Link to={"/add"}>
+                      <Link to={"players/add"}>
                         <Button
                           onClick={toggleMenu}
                           variant={"outlined"}

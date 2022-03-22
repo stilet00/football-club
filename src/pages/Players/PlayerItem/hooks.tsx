@@ -29,11 +29,20 @@ export function useToggle() {
     toggleItems,
   };
 }
+
 export function usePlayerItem() {
   const { path } = useRouteMatch();
+
   const history = useHistory();
+
   function onPlayerClick(id: string | undefined) {
-    history.push(path + "/" + id);
+    if (path.includes(":id")) {
+      history.push(`${id}`);
+    } else if (path.includes("add")) {
+      history.push(`add/${id}`);
+    } else {
+      history.push("players/add/" + id);
+    }
   }
   return {
     onPlayerClick,

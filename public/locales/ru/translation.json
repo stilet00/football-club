@@ -37,7 +37,7 @@
     "googleButton": "Логин через google",
     "emailButton": "Логин через email",
     "registerButton": "Регистрация через email",
-    "singOutButton": "Разлогиниться",
+    "singOutButton": "Выход",
     "googleSuccess": "Вы успешно авторизировались через google.com!",
     "formEmail": "Имейл",
     "formPassword": "Пароль",

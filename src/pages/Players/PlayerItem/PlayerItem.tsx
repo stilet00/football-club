@@ -46,24 +46,22 @@ function PlayerItem({
   deletePlayer,
   edited,
 }: PlayerItemProps) {
-  console.log(edited);
-
   const [width] = useMediaQuery();
+
   const { onPlayerClick } = usePlayerItem();
+
   const { itemsShown, toggleItems } = useToggle();
+
   const { t, i18n } = useTranslation();
+
   const secondAgeNumber = String(moment().diff(birthDate, "years"))[1];
+
   const russianAge =
     secondAgeNumber === "1"
       ? "год"
-      : secondAgeNumber === "5" ||
-        secondAgeNumber === "6" ||
-        secondAgeNumber === "7" ||
-        secondAgeNumber === "8" ||
-        secondAgeNumber === "9" ||
-        secondAgeNumber === "0"
-      ? "лет"
-      : "года";
+      : Number(secondAgeNumber) > 1 && Number(secondAgeNumber) < 5
+      ? "года"
+      : "лет";
 
   return (
     <>

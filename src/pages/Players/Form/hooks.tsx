@@ -1,5 +1,5 @@
 import { useHistory, useParams } from "react-router";
-import React, { createRef, useCallback, useState } from "react";
+import React, { createRef, useCallback, useState, useEffect } from "react";
 import { DEFAULT_PLAYER } from "../../../shared/constants/constants";
 import moment, { Moment } from "moment";
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
@@ -17,6 +17,13 @@ export function useForm(players: Array<Player>) {
   const [player, setPlayer] = useState(
     (players && players.find((item) => item.id === params.id)) || DEFAULT_PLAYER
   );
+
+  useEffect(() => {
+    setPlayer(
+      (players && players.find((item) => item.id === params.id)) ||
+        DEFAULT_PLAYER
+    );
+  }, [params, players]);
 
   const [fieldsFilled, setFieldsFilled] = useState(false);
 
