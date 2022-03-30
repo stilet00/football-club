@@ -1,17 +1,20 @@
 import Players from "../../pages/Players/Players";
+import Redirecter from "../../components/Redirect/Redirecter";
 import Form from "../../pages/Players/Form/Form";
 import Location from "../../components/Location/Location";
 import Statistics from "../../pages/Statistics/Statistics";
-import { Redirect } from "react-router";
 import Authorization from "../../pages/Authorization/Authorization";
 import PlayerList from "../../pages/Players/PlayersList/PlayerList";
 
-export const mainRoutes = [
-  {
-    exact: true,
-    path: "/add",
-    component: Form,
-  },
+interface Route {
+  exact?: boolean;
+  path: string;
+  component: React.FunctionComponent;
+}
+
+interface Routes extends Array<Route> {}
+
+export const mainRoutes: Routes = [
   {
     exact: false,
     path: "/players/",
@@ -34,9 +37,7 @@ export const mainRoutes = [
   },
   {
     path: "*",
-    component: function () {
-      return <Redirect to={"/"} />;
-    },
+    component: Redirecter,
   },
 ];
 
@@ -53,7 +54,7 @@ export const playersRoutes = [
   },
   {
     exact: true,
-    path: "/players/:id",
+    path: "/players/add/:id",
     component: Form,
-  }
+  },
 ];

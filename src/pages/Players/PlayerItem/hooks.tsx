@@ -15,9 +15,11 @@ export function useMediaQuery() {
 
   return screenSize;
 }
+
 export function useToggle() {
   const [itemsShown, setItemShown] = useState(false);
-  function toggleItems(e) {
+
+  function toggleItems(e: React.MouseEvent) {
     e.stopPropagation();
     setItemShown(!itemsShown);
   }
@@ -27,11 +29,20 @@ export function useToggle() {
     toggleItems,
   };
 }
+
 export function usePlayerItem() {
   const { path } = useRouteMatch();
+
   const history = useHistory();
-  function onPlayerClick(id) {
-    history.push(path + "/" + id);
+
+  function onPlayerClick(id: string | undefined) {
+    if (path.includes(":id")) {
+      history.push(`${id}`);
+    } else if (path.includes("add")) {
+      history.push(`add/${id}`);
+    } else {
+      history.push("players/add/" + id);
+    }
   }
   return {
     onPlayerClick,

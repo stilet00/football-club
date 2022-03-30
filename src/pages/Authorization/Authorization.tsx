@@ -10,22 +10,34 @@ import "./Authorization.css";
 import { Button } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import AuthorizationForm from "./AuthorizationForm/AuthorizationForm";
-function Authorization(props) {
+
+export interface AuthInterface {
+  email: string;
+  password: string;
+  repeatPassword: string;
+}
+
+function Authorization() {
   const { t } = useTranslation();
+
   const [errorText, setErrorText] = useState(null);
+
   function googleAuth() {
     const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(googleAuthProvider);
   }
-  function Authentification({ email, password, repeatPassword }) {
+
+  function Authentification({
+    email,
+    password,
+    repeatPassword,
+  }: AuthInterface) {
     if (repeatPassword.length) {
       if (password === repeatPassword) {
         firebase
           .auth()
           .createUserWithEmailAndPassword(email, password)
-          .then((userCredential) => {
-            var user = userCredential.user;
-          })
+          .then((userCredential) => {})
           .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -39,9 +51,7 @@ function Authorization(props) {
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          var user = userCredential.user;
-        })
+        .then((userCredential) => {})
         .catch((error) => {
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -50,6 +60,7 @@ function Authorization(props) {
         });
     }
   }
+
   return (
     <FirebaseAuthConsumer>
       {({ isSignedIn, user, providerId }) => {

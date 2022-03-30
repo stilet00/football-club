@@ -10,17 +10,16 @@ import Paper from "@material-ui/core/Paper";
 import PlayerItem from "../PlayerItem/PlayerItem";
 import { Button, Fab } from "@material-ui/core";
 import { Link } from "react-router-dom";
-import { CSSTransition, SwitchTransition } from "react-transition-group";
 import AddIcon from "@material-ui/icons/Add";
-import RefreshIcon from "@material-ui/icons/Refresh";
-import { useRouteMatch } from "react-router";
 import "./PlayerList.css";
 import { PAGINATION_STEP } from "../../../shared/constants/constants";
 import { usePagination } from "../../../shared/hooks/pagination";
 import ArrowBack from "@material-ui/icons/ArrowBack";
 import ArrowForward from "@material-ui/icons/ArrowForward";
-import { useTranslation } from "react-i18next";
 import { useDataBase } from "../../../shared/hooks/useDataBase";
+import { Player } from "../../../shared/interfaces/player";
+import { useTranslation } from "react-i18next";
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -36,12 +35,16 @@ const useStyles = makeStyles({
     minWidth: "100%",
   },
 });
+
 function PlayerList() {
-  const { players, deletePlayer, refreshPlayers } = useDataBase();
-  const { t } = useTranslation();
   const classes = useStyles();
-  const { path } = useRouteMatch();
+
+  const { players, deletePlayer } = useDataBase();
+
+  const { t } = useTranslation();
+
   const { currentPage, goForward, goBack } = usePagination();
+
   return (
     <>
       <TableContainer component={Paper} className={"players-list"}>
@@ -74,52 +77,43 @@ function PlayerList() {
                 currentPage * PAGINATION_STEP - PAGINATION_STEP,
                 currentPage * PAGINATION_STEP
               )
-              .map((player) => (
-                <SwitchTransition mode={"out-in"}>
-                  <CSSTransition
-                    key={player.id}
-                    addEndListener={(node, done) => {
-                      node.addEventListener("transitionend", done, false);
-                    }}
-                    classNames={"fade"}
-                  >
-                    <PlayerItem {...player} deletePlayer={deletePlayer} />
-                  </CSSTransition>
-                </SwitchTransition>
+              .map((player: Player) => (
+                <PlayerItem
+                  {...player}
+                  deletePlayer={deletePlayer}
+                  key={player.id}
+                />
               ))}
           </TableBody>
         </Table>
+        <div className={"control-buttons control-buttons__table-controls"}>
+          <Button
+            aria-label="back"
+            name={"back"}
+            onClick={goBack}
+            disabled={currentPage === 1}
+            variant={"outlined"}
+            className={"action-button"}
+          >
+            <ArrowBack />
+          </Button>
+          <Fab aria-label="add" className={"action-button"}>
+            <Link to={"/players/add"}>
+              <AddIcon />
+            </Link>
+          </Fab>
+          <Button
+            aria-label="forward"
+            name={"forward"}
+            onClick={goForward}
+            disabled={players.length - currentPage * PAGINATION_STEP <= 0}
+            variant={"outlined"}
+            className={"action-button"}
+          >
+            <ArrowForward id={"back"} />
+          </Button>
+        </div>
       </TableContainer>
-      <div className={"control-buttons"}>
-        <Button
-          aria-label="back"
-          name={"back"}
-          onClick={goBack}
-          disabled={currentPage === 1}
-          variant={"outlined"}
-          className={"action-button"}
-        >
-          <ArrowBack />
-        </Button>
-        <Fab aria-label="add" className={"action-button"}>
-          <Link to={path + "/add"}>
-            <AddIcon />
-          </Link>
-        </Fab>
-        <Fab aria-label="add" className={"action-button"} onClick={refreshPlayers}>
-            <RefreshIcon />
-        </Fab>
-        <Button
-          aria-label="forward"
-          name={"forward"}
-          onClick={goForward}
-          disabled={players.length - currentPage * PAGINATION_STEP <= 0}
-          variant={"outlined"}
-          className={"action-button"}
-        >
-          <ArrowForward id={"back"} />
-        </Button>
-      </div>
     </>
   );
 }

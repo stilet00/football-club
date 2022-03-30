@@ -4,12 +4,7 @@
   transition: 0.5s;
 }
 .single-player-item:hover {
-  background: linear-gradient(
-    90deg,
-    #00b2a9 26%,
-    #003c33 64%,
-    #00b2a9 255%
-  ) !important;
+  background: #00b2a9 !important;
 }
 .single-player-item:hover > td {
   color: white !important;

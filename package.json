@@ -13,7 +13,9 @@
     "@testing-library/user-event": "12.1.10",
     "caniuse-lite": "^1.0.30001301",
     "chart.js": "3.4.0",
+    "eslint": "^7.32.0",
     "firebase": "8.7.1",
+    "g": "^2.0.1",
     "i18next": "20.3.2",
     "i18next-browser-languagedetector": "6.1.2",
     "i18next-http-backend": "1.2.6",
@@ -22,11 +24,12 @@
     "react-chartjs-2": "3.0.3",
     "react-dom": "17.0.2",
     "react-i18next": "11.11.0",
-    "react-media": "1.10.0",
+    "react-media": "^1.10.0",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
     "react-transition-group": "4.4.1",
+    "sass": "^1.49.9",
     "web-vitals": "1.0.1"
   },
   "scripts": {
@@ -52,5 +55,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "typescript": "^4.5.5"
   }
 }

@@ -10,6 +10,8 @@ import { useMediaQuery, usePlayerItem, useToggle } from "./hooks";
 import { CSSTransition } from "react-transition-group";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
+import { Player } from "../../../shared/interfaces/player";
+
 const StyledTableRow = withStyles((theme) => ({
   root: {
     "&:nth-of-type(odd)": {
@@ -17,6 +19,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -28,6 +31,10 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
+interface PlayerItemProps extends Player {
+  deletePlayer: (event: React.MouseEvent, id: string | undefined) => void;
+}
+
 function PlayerItem({
   id,
   name,
@@ -38,29 +45,29 @@ function PlayerItem({
   price,
   deletePlayer,
   edited,
-}) {
+}: PlayerItemProps) {
   const [width] = useMediaQuery();
+
   const { onPlayerClick } = usePlayerItem();
+
   const { itemsShown, toggleItems } = useToggle();
+
   const { t, i18n } = useTranslation();
+
   const secondAgeNumber = String(moment().diff(birthDate, "years"))[1];
+
   const russianAge =
     secondAgeNumber === "1"
       ? "год"
-      : secondAgeNumber === "5" ||
-        secondAgeNumber === "6" ||
-        secondAgeNumber === "7" ||
-        secondAgeNumber === "8" ||
-        secondAgeNumber === "9" ||
-        secondAgeNumber === "0"
-      ? "лет"
-      : "года";
+      : Number(secondAgeNumber) > 1 && Number(secondAgeNumber) < 5
+      ? "года"
+      : "лет";
 
   return (
     <>
       <StyledTableRow
         className={"single-player-item"}
-        onClick={(e) => onPlayerClick(id)}
+        onClick={() => onPlayerClick(id)}
       >
         <StyledTableCell
           scope="row"
@@ -98,7 +105,7 @@ function PlayerItem({
           </Button>
         </StyledTableCell>
         <StyledTableCell align="center" className={"hiding-fields"}>
-          {edited !== null ? edited.fromNow() : t("table.editedFalse")}
+          {edited !== null ? moment(edited).fromNow() : t("table.editedFalse")}
         </StyledTableCell>
       </StyledTableRow>
       <CSSTransition
@@ -130,7 +137,7 @@ function PlayerItem({
           </StyledTableCell>
           <StyledTableCell className={"shown-menu-cell"} align="center">
             {edited !== null
-              ? "Edited " + edited.fromNow()
+              ? "Edited " + moment(edited).fromNow()
               : t("table.editedFalse")}
           </StyledTableCell>
         </StyledTableRow>

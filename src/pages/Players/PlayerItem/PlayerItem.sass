@@ -2,15 +2,20 @@
   border-bottom: 2px solid rgba(224, 224, 224, 1)
   cursor: pointer
   transition: 0.5s
+
   &:hover
-    background: linear-gradient(90deg, rgba(0,178,169,1) 26%, rgba(0,60,51,1) 64%, rgba(0,178,169,1) 255%)!important
+    background: rgba(0,178,169,1)!important
+
     & > td
       color: white!important
+
   &:hover
     & > td > .thumbnail
       border: 1px solid white
+
   td:first-child
     position: relative
+
     button
       content: ''
       position: absolute
@@ -28,19 +33,25 @@
       background: black
       color: aliceblue
       transition: 0.5s
+
       &.transformed
         transform: rotate(270deg)
         background: rgb(200,16,46)
+
   &:last-child
     border: none
+
   .MuiTableCell-root
     border: none
+
 .image-name-container
   display: flex!important
   align-items: center
+
 .delete-button
   color: rgb(200,16,46)!important
   z-index: 999
+
 .thumbnail
   width: 50px
   height: 50px
@@ -54,10 +65,13 @@
   width: 49%
   border: 1px solid grey
   background: white
+
   &:first-child
     border-left: none
+
   &:last-child
     border-right: none
+
   //animation
 .fields-enter
   opacity: 0
@@ -74,14 +88,18 @@
   opacity: 0
   transform: translateY(-100px)
   transition: all 2s ease
+
 @media (min-width: 665px)
   .toggled-row
     display: none
+
 @media (max-width: 665px)
   .single-player-item
     td:first-child
       width: 100%
+
       button
         display: flex
+
   .MuiTableCell-root
     width: 49%
